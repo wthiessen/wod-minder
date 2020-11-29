@@ -137,7 +137,7 @@ class Welcome extends MY_Controller {
         }
 
         $data['box_wod_list'] = $this->_get_box_wod();
-        $data['benchmark_wod_list'] = $this->_get_benchmark_wod();
+        $data['benchmark_wod_list'] = [];//$this->_get_benchmark_wod();
         $data['is_competitor'] = $member_info->is_competitor;
 
         $this->load->vars($data);

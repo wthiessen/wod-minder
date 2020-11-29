@@ -352,7 +352,7 @@ echo anchor('#Main', 'Return', array('data-direction' => 'reverse',
     <div data-role="content">		
         <div class="content-primary">	
             <ul data-role="listview" data-filter="true" data-filter-placeholder="Pick a WOD..." data-filter-theme="d" data-theme="d" data-divider-theme="d">
-<?php echo $benchmark_wod_list; ?>
+<?php // echo $benchmark_wod_list; ?>
             </ul>
         </div><!--/content-primary -->		
     </div><!-- content, AllBenchmarkWoDs -->
@@ -497,15 +497,15 @@ echo anchor('#Main', 'Return', array('data-direction' => 'reverse',
         </div><!-- /header -->
         <div data-role="fieldcontain">	
             <p>
-                <?php echo anchor('#FindAFit', 'Find A Fit', array('data-role' => 'button')); ?>
+                <?php // echo anchor('#FindAFit', 'Find A Fit', array('data-role' => 'button')); ?>
             </p>
             <p>
-    <?php echo anchor('administration_functions/save_box_wod', 'Save Box WOD', array('data-ajax' => 'false',
+    <?php echo anchor('administration_functions/save_box_wod', 'Create WOD', array('data-ajax' => 'false',
         'data-role' => 'button'));
     ?>	
             </p>
             <p>
-                <?php echo anchor('administration_functions/edit_box_wod', 'Edit Box WOD', array('data-ajax' => 'false',
+                <?php echo anchor('administration_functions/edit_box_wod', 'Edit WOD', array('data-ajax' => 'false',
                     'data-role' => 'button'));
                 ?>	
             </p>
@@ -535,18 +535,21 @@ echo anchor('#Main', 'Return', array('data-direction' => 'reverse',
                 ?>	
             </p>
             <p>
-    <?php echo anchor('administration_functions/save_benchmark_wod', 'Save CrossFit Benchmark WOD', array('data-ajax' => 'false',
-        'data-role' => 'button'));
+	 <?php 
+	//  echo anchor('administration_functions/save_benchmark_wod', 'Save CrossFit Benchmark WOD', array('data-ajax' => 'false',
+      //   'data-role' => 'button'));
     ?>	
             </p>
             <p>
-    <?php echo anchor('administration_functions/select_benchmark_wod', 'Edit CrossFit Benchmark WOD', array('data-ajax' => 'false',
-        'data-role' => 'button'));
+	 <?php 
+	//  echo anchor('administration_functions/select_benchmark_wod', 'Edit CrossFit Benchmark WOD', array('data-ajax' => 'false',
+      //   'data-role' => 'button'));
     ?>	
             </p>
             <p>
-    <?php echo anchor('administration_functions/view_audit_trail', 'View Audit Trail', array('data-ajax' => 'false',
-        'data-role' => 'button'));
+	 <?php 
+	//  echo anchor('administration_functions/view_audit_trail', 'View Audit Trail', array('data-ajax' => 'false',
+      //   'data-role' => 'button'));
     ?>	
             </p>
     <?php
