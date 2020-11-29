@@ -5,36 +5,36 @@ if (!defined('BASEPATH'))
 
 session_start();
 
-require "/var/www/library/Facebook/FacebookSDKException.php";
-require "/var/www/library/Facebook/FacebookRequestException.php";
-require "/var/www/library/Facebook/FacebookAuthorizationException.php";
-require "/var/www/library/Facebook/FacebookSignedRequestFromInputHelper.php";
-require "/var/www/library/Facebook/FacebookCanvasLoginHelper.php";
-require "/var/www/library/Facebook/FacebookClientException.php";
-require "/var/www/library/Facebook/FacebookJavaScriptLoginHelper.php";
-require "/var/www/library/Facebook/FacebookOtherException.php";
-require "/var/www/library/Facebook/FacebookPageTabHelper.php";
-require "/var/www/library/Facebook/FacebookPermissionException.php";
-require "/var/www/library/Facebook/FacebookPermissions.php";
-require "/var/www/library/Facebook/FacebookRedirectLoginHelper.php";
-require "/var/www/library/Facebook/FacebookRequest.php";
-require "/var/www/library/Facebook/FacebookResponse.php";
-require "/var/www/library/Facebook/FacebookServerException.php";
+require "/../../library/Facebook/FacebookSDKException.php";
+require "/../../library/Facebook/FacebookRequestException.php";
+require "/../../library/Facebook/FacebookAuthorizationException.php";
+require "/../../library/Facebook/FacebookSignedRequestFromInputHelper.php";
+require "/../../library/Facebook/FacebookCanvasLoginHelper.php";
+require "/../../library/Facebook/FacebookClientException.php";
+require "/../../library/Facebook/FacebookJavaScriptLoginHelper.php";
+require "/../../library/Facebook/FacebookOtherException.php";
+require "/../../library/Facebook/FacebookPageTabHelper.php";
+require "/../../library/Facebook/FacebookPermissionException.php";
+require "/../../library/Facebook/FacebookPermissions.php";
+require "/../../library/Facebook/FacebookRedirectLoginHelper.php";
+require "/../../library/Facebook/FacebookRequest.php";
+require "/../../library/Facebook/FacebookResponse.php";
+require "/../../library/Facebook/FacebookServerException.php";
 
-require "/var/www/library/Facebook/Entities/AccessToken.php";
-require "/var/www/library/Facebook/HttpClients/FacebookHttpable.php";
-require "/var/www/library/Facebook/HttpClients/FacebookCurl.php";
-require "/var/www/library/Facebook/HttpClients/FacebookCurlHttpClient.php";
+require "/../../library/Facebook/Entities/AccessToken.php";
+require "/../../library/Facebook/HttpClients/FacebookHttpable.php";
+require "/../../library/Facebook/HttpClients/FacebookCurl.php";
+require "/../../library/Facebook/HttpClients/FacebookCurlHttpClient.php";
 
-require "/var/www/library/Facebook/FacebookSession.php";
-require "/var/www/library/Facebook/FacebookThrottleException.php";
-require "/var/www/library/Facebook/GraphObject.php";
-require "/var/www/library/Facebook/GraphAlbum.php";
-require "/var/www/library/Facebook/GraphLocation.php";
-require "/var/www/library/Facebook/GraphPage.php";
-require "/var/www/library/Facebook/GraphSessionInfo.php";
-require "/var/www/library/Facebook/GraphUser.php";
-require "/var/www/library/Facebook/GraphUserPage.php";
+require "/../../library/Facebook/FacebookSession.php";
+require "/../../library/Facebook/FacebookThrottleException.php";
+require "/../../library/Facebook/GraphObject.php";
+require "/../../library/Facebook/GraphAlbum.php";
+require "/../../library/Facebook/GraphLocation.php";
+require "/../../library/Facebook/GraphPage.php";
+require "/../../library/Facebook/GraphSessionInfo.php";
+require "/../../library/Facebook/GraphUser.php";
+require "/../../library/Facebook/GraphUserPage.php";
 
 use Facebook\FacebookSession;
 use Facebook\FacebookRequest;
@@ -584,9 +584,11 @@ class Welcome extends MY_Controller {
         $divider_row = '<li data-role="list-divider">REPLACE_ME</li>';
         $exercise_list = '';
         $this->load->model('Exercise_model');
-        $exercise_list_array = $this->Exercise_model->get_exercise_list($this->session->userdata('member_id'));
+		  $exercise_list_array = $this->Exercise_model->get_exercise_list($this->session->userdata('member_id'));
         $current_max_type = '';
         foreach ($exercise_list_array as $row) {
+			// var_dump($row);
+
             $data_theme = 'data-theme="' . ($row['recorded_max'] ? 'e' : 'c') . '"';
             if ($current_max_type != $row['max_type']) {
                 $exercise_list .= str_replace('REPLACE_ME', $max_types[$row['max_type']], $divider_row);
@@ -618,11 +620,13 @@ class Welcome extends MY_Controller {
         $benchmark_wod_history = '';
 
         $this->load->model('Wod_model');
-        $history_array = $this->Wod_model->get_member_benchmark_wods();
+		  $history_array = $this->Wod_model->get_member_benchmark_wods();
         if (!$history_array)
-            return FALSE;
+		  return FALSE;
         $current_benchmark_wod_category = '';
         foreach ($history_array as $row) {
+			  
+			//   var_dump($row);
             if ($current_benchmark_wod_category != $row['category']) {
                 $benchmark_wod_history .= str_replace('REPLACE_ME', $benchmark_wod_categorys[$row['category']], $divider_row);
                 $current_benchmark_wod_category = $row['category'];

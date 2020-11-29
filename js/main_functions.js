@@ -908,11 +908,11 @@ function update_member_doc_ready()
 			}
 			
 			var birthDate = $('#_birthDate').val();
-			if (!isValidDate(birthDate))
-			{
-				alert('Birthdate is not valid.  Use format mm/dd/yy');
-				return false;
-			}			
+			// if (!isValidDate(birthDate))
+			// {
+			// 	alert('Birthdate is not valid.  Use format mm/dd/yy');
+			// 	return false;
+			// }			
 		}
 	);
 	
@@ -976,8 +976,8 @@ function create_member_doc_ready()
 			var birthDate = $('#_birthDate').val();
 			if (!isValidDate(birthDate))
 			{
-				alert('Birthdate is not valid.  Use format mm/dd/yy');
-				return false;
+				// alert('Birthdate is not valid.  Use format mm/dd/yy');
+				// return false;
 			}			
 		}
 	);
