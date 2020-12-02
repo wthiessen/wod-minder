@@ -738,7 +738,7 @@ class Wod extends MY_Controller {
 			$ret_val = $this->Wod_model->save_member_benchmark_wod($data);
 			if ($ret_val['success']) 
 			{
-				$this->session->set_flashdata('good_message', 'Benchmark WOD saved.');
+				$this->session->set_flashdata('good_message', 'Hero WOD saved.');
 				redirect('welcome/index/TRUE');
 			}
 			else
@@ -747,7 +747,7 @@ class Wod extends MY_Controller {
 		}
 
 		$data['title']		=	$wod_data['wod_name'];
-		$data['heading']	=	'Save Benchmark WOD';
+		$data['heading']	=	'Save Hero WOD';
 		$data['view']		=	'mobile_member_benchmark_wod_save';
 		$data['id_type']	=	$id_type;
 		$data['id_value']	=	$id_value;
@@ -845,11 +845,10 @@ class Wod extends MY_Controller {
 		
 	}
 	
-	//Gets controls for both Box WODs and BenchMark WODs
+	//Gets controls for both Box WODs and Hero WODs
 	private function _get_wod_form_data($wod, $is_benchmark_wod	=	false)
 	{
 		$data	=	null;
-                
 		
 		switch ($wod['score_type']) 
 		{
@@ -862,7 +861,7 @@ class Wod extends MY_Controller {
 
 				if ($score > 0)
 				{
-					$score_minutes	=	floor($score / 60);
+					$score_minutes	=	floor($score / 60).':'.$score - ($score_minutes * 60);
 					$score_seconds	=	$score - ($score_minutes * 60);
 				}
 				
@@ -921,7 +920,7 @@ class Wod extends MY_Controller {
 		}
 
 		$member_rating_options		=	array(
-												'-1'	=>	'',
+												'-1'	=>	'- Select Rating -',
 												'5'		=>	'5 - Awesome!!',
 												'4'		=>	'4 - Fun',
 												'3'		=>	'3 - Ok',

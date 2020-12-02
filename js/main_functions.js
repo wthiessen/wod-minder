@@ -792,7 +792,7 @@ function save_member_wod_doc_ready()
 {	
 	$('#_submit').click(function() 
 		{	
-			//only applicable to benchmark wods (not box wods); so don't check if it doesn't exist
+			//only applicable to Hero WODs (not box wods); so don't check if it doesn't exist
 			if($('#_wodDate').length > 0)
 			{
 				var wodDate = $('#_wodDate').val();

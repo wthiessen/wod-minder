@@ -90,7 +90,7 @@ class Box_model extends CI_Model {
                                         WHERE
                                                 bct.box_id = (SELECT box_id from box_wod WHERE bw_id = $bw_id)
 					ORDER BY 
-						class_time";
+						bct_id";
 
 		$query = $this->db->query($sql);
 		
@@ -331,7 +331,7 @@ class Box_model extends CI_Model {
 							,cash_out
 						) END AS cash_out,
 					IFNULL(daily_message,'') AS daily_message,
-					IFNULL(image_name, '') AS image_name,
+					IFNULL(image_name, '33') AS image_name,
 					IFNULL(image_link, '') AS image_link,
 					IFNULL(image_caption, '') AS image_caption,
 					wod_date AS wod_date_raw,
@@ -747,6 +747,7 @@ class Box_model extends CI_Model {
 		$data['modified_by']	=	'N/A deleted every time';
 		$data['created_date'] = date('Y-m-d H:i:s');
 		$data['created_by'] = $this->session->userdata('display_name');
+		$data['bct_id'] = 0; 
 		
 		//Now Add the record
 		$this->db->insert('member_wod', $data);
@@ -821,6 +822,8 @@ class Box_model extends CI_Model {
 			{
 				$data['created_date'] = date('Y-m-d H:i:s');
 				$data['created_by'] = $this->session->userdata('display_name');
+				$data['image_name'] = '';
+				$data['image_link'] = '';
 				$this->db->insert('box_wod', $data);
 			}
 			else

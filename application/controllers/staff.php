@@ -186,19 +186,19 @@ class Staff extends MY_Controller {
         $bw_id = $this->uri->segment(3);
 
         $this->form_validation->set_rules('wod_date', 'Date', 'trim|required');
-        $this->form_validation->set_rules('simple_title', 'WOD Name', 'trim');
-        $this->form_validation->set_rules('simple_description', 'WOD Description', 'trim');
-        $this->form_validation->set_rules('daily_message', 'Daily Message', 'trim');
-        $this->form_validation->set_rules('image_caption', 'Image Caption', 'trim');
-        $this->form_validation->set_rules('buy_in', 'Buy-In', 'trim');
-        $this->form_validation->set_rules('cash_out', 'Cash Out', 'trim');
+        $this->form_validation->set_rules('simple_title', 'WOD Name', 'trim|required');
+        $this->form_validation->set_rules('simple_description', 'WOD Description', 'trim|required');
+      //   $this->form_validation->set_rules('daily_message', 'Daily Message', 'trim');
+      //   $this->form_validation->set_rules('image_caption', 'Image Caption', 'trim');
+      //   $this->form_validation->set_rules('buy_in', 'Buy-In', 'trim');
+      //   $this->form_validation->set_rules('cash_out', 'Cash Out', 'trim');
         $this->form_validation->set_rules('score_type', 'Score Type', 'trim|required');
         $this->form_validation->set_rules('wod_type_id', 'WOD Type', 'trim');
         $this->form_validation->set_rules('scale_id', 'Scale', 'trim');
         $this->form_validation->set_rules('wod_id', 'wod id', 'trim');
         $this->form_validation->set_rules('bwt_id', 'bwt id', 'trim');
-        $this->form_validation->set_rules('image-source', 'Image Source', 'trim');
-        $this->form_validation->set_rules('image_link', 'Image Link', 'trim');
+      //   $this->form_validation->set_rules('image-source', 'Image Source', 'trim');
+      //   $this->form_validation->set_rules('image_link', 'Image Link', 'trim');
 
         //Did user select an image to upload the file?
         $image_data = FALSE;
@@ -247,13 +247,13 @@ class Staff extends MY_Controller {
                 $data['bwt_id'] = $bwt_id;
 
             //If saving a box_wod, do not save scale and vice versa
-            $scale_id = $this->input->post('scale_id');
+            $scale_id = 1;//$this->input->post('scale_id');
             $data['wod_id'] = $this->input->post('wod_id');
 
             if ($scale_id > 0)
                 $data['scale_id'] = $scale_id;
             else
-                $data['scale_id'] = '';
+                $data['scale_id'] = 1;
             if ($image_source === 'web') {
                 $data['image_link'] = $this->input->post('image_link');
                 $data['image_name'] = '';
@@ -351,7 +351,7 @@ class Staff extends MY_Controller {
 
             $data['use_wizard'] = FALSE; //Don't use wizard when user is editing an existing box wod
         } else {
-            $box_wod['bw_id'] = '';
+            $box_wod['bw_id'] = 1;
             $box_wod['wod_date'] = date('m/d/y');
             $box_wod['daily_message'] = '';
             $box_wod['image_caption'] = '';
@@ -360,13 +360,13 @@ class Staff extends MY_Controller {
             $box_wod['simple_title'] = '';
             $box_wod['simple_description'] = '';
             $box_wod['wod_id'] = '';
-            $box_wod['scale_id'] = '';
+            $box_wod['scale_id'] = 1;
             $box_wod['score_type'] = '';
             $box_wod['wod_type_id'] = '';
             $box_wod['image_name'] = '';
             $box_wod['bwt_id'] = '';
 
-            $data['use_wizard'] = TRUE; //Creating new box_wod; use wizard
+            $data['use_wizard'] = false; //Creating new box_wod; use wizard
         }
 
         $data['title'] = 'Save WOD';
@@ -736,7 +736,7 @@ class Staff extends MY_Controller {
             foreach ($box_tier_array as $row)
                 $box_tier_list .= '<li><a id="bwt_id_' . $row['bwt_id'] . '" class="tier-link" href="#DailyMessagePage">' . $row['tier_name'] . '</a></li>';
 
-        //Get list of Benchmark WODs
+        //Get list of Hero WODs
         $benchmark_wod_array = $this->Wod_model->get_benchmark_wod_list();
 
         foreach ($benchmark_wod_array as $row) {
@@ -869,7 +869,7 @@ class Staff extends MY_Controller {
         $this->load->model('Box_model');
         $leader_board = $this->Box_model->get_leader_board_for_staff($box_id);
         if (!$leader_board)
-            return 'No rx\'d Benchmark WODs saved.';
+            return 'No rx\'d Hero WODs saved.';
 
         $return_html = '';
         $page_data = '';

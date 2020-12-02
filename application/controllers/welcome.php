@@ -5,42 +5,42 @@ if (!defined('BASEPATH'))
 
 session_start();
 
-require "/../../library/Facebook/FacebookSDKException.php";
-require "/../../library/Facebook/FacebookRequestException.php";
-require "/../../library/Facebook/FacebookAuthorizationException.php";
-require "/../../library/Facebook/FacebookSignedRequestFromInputHelper.php";
-require "/../../library/Facebook/FacebookCanvasLoginHelper.php";
-require "/../../library/Facebook/FacebookClientException.php";
-require "/../../library/Facebook/FacebookJavaScriptLoginHelper.php";
-require "/../../library/Facebook/FacebookOtherException.php";
-require "/../../library/Facebook/FacebookPageTabHelper.php";
-require "/../../library/Facebook/FacebookPermissionException.php";
-require "/../../library/Facebook/FacebookPermissions.php";
-require "/../../library/Facebook/FacebookRedirectLoginHelper.php";
-require "/../../library/Facebook/FacebookRequest.php";
-require "/../../library/Facebook/FacebookResponse.php";
-require "/../../library/Facebook/FacebookServerException.php";
+// require "/../../library/Facebook/FacebookSDKException.php";
+// require "/../../library/Facebook/FacebookRequestException.php";
+// require "/../../library/Facebook/FacebookAuthorizationException.php";
+// require "/../../library/Facebook/FacebookSignedRequestFromInputHelper.php";
+// require "/../../library/Facebook/FacebookCanvasLoginHelper.php";
+// require "/../../library/Facebook/FacebookClientException.php";
+// require "/../../library/Facebook/FacebookJavaScriptLoginHelper.php";
+// require "/../../library/Facebook/FacebookOtherException.php";
+// require "/../../library/Facebook/FacebookPageTabHelper.php";
+// require "/../../library/Facebook/FacebookPermissionException.php";
+// require "/../../library/Facebook/FacebookPermissions.php";
+// require "/../../library/Facebook/FacebookRedirectLoginHelper.php";
+// require "/../../library/Facebook/FacebookRequest.php";
+// require "/../../library/Facebook/FacebookResponse.php";
+// require "/../../library/Facebook/FacebookServerException.php";
 
-require "/../../library/Facebook/Entities/AccessToken.php";
-require "/../../library/Facebook/HttpClients/FacebookHttpable.php";
-require "/../../library/Facebook/HttpClients/FacebookCurl.php";
-require "/../../library/Facebook/HttpClients/FacebookCurlHttpClient.php";
+// require "/../../library/Facebook/Entities/AccessToken.php";
+// require "/../../library/Facebook/HttpClients/FacebookHttpable.php";
+// require "/../../library/Facebook/HttpClients/FacebookCurl.php";
+// require "/../../library/Facebook/HttpClients/FacebookCurlHttpClient.php";
 
-require "/../../library/Facebook/FacebookSession.php";
-require "/../../library/Facebook/FacebookThrottleException.php";
-require "/../../library/Facebook/GraphObject.php";
-require "/../../library/Facebook/GraphAlbum.php";
-require "/../../library/Facebook/GraphLocation.php";
-require "/../../library/Facebook/GraphPage.php";
-require "/../../library/Facebook/GraphSessionInfo.php";
-require "/../../library/Facebook/GraphUser.php";
-require "/../../library/Facebook/GraphUserPage.php";
+// require "/../../library/Facebook/FacebookSession.php";
+// require "/../../library/Facebook/FacebookThrottleException.php";
+// require "/../../library/Facebook/GraphObject.php"core/Loader.php;
+// require "/../../library/Facebook/GraphAlbum.php";
+// require "/../../library/Facebook/GraphLocation.php";
+// require "/../../library/Facebook/GraphPage.php";
+// require "/../../library/Facebook/GraphSessionInfo.php";
+// require "/../../library/Facebook/GraphUser.php";
+// require "/../../library/Facebook/GraphUserPage.php";
 
-use Facebook\FacebookSession;
-use Facebook\FacebookRequest;
-use Facebook\GraphUser;
-use Facebook\FacebookRequestException;
-use Facebook\FacebookRedirectLoginHelper;
+// use Facebook\FacebookSession;
+// use Facebook\FacebookRequest;
+// use Facebook\GraphUser;
+// use Facebook\FacebookRequestException;
+// use Facebook\FacebookRedirectLoginHelper;
 
 /**
  * Welcome Class
@@ -60,7 +60,6 @@ class Welcome extends MY_Controller {
      */
     public function index() {
         //$this->output->enable_profiler(TRUE);
-
         $this->load->library('user_agent');
 
         define('FORCE_MOBILE_SEGMENT', 3);
@@ -124,7 +123,7 @@ class Welcome extends MY_Controller {
         if ($box_stats) {
             $data['member_is_staff'] = true;
             $data['box_stats'] = $box_stats;
-            $data['facebook_link'] = $this->_get_facebook_url();
+            // $data['facebook_link'] = $this->_get_facebook_url();
         }
 
         //for administrators only
@@ -242,17 +241,17 @@ class Welcome extends MY_Controller {
         //END AUDIT
     }
 
-    private function _get_facebook_url() {
+   //  private function _get_facebook_url() {
 
-        $appId =  'appid';
-        $secret = 'secret';
-        FacebookSession::setDefaultApplication($appId, $secret);
+   //      $appId =  'appid';
+   //      $secret = 'secret';
+   //      FacebookSession::setDefaultApplication($appId, $secret);
 
-        // login helper with redirect_uri
-        $helper = new FacebookRedirectLoginHelper('http://app.wod-minder.com/index.php/staff/save_box_wod_for_staff');
+   //      // login helper with redirect_uri
+   //      $helper = new FacebookRedirectLoginHelper('http://app.wod-minder.com/index.php/staff/save_box_wod_for_staff');
 
-        return $helper->getLoginUrl();
-    }
+   //      return $helper->getLoginUrl();
+   //  }
 
     //An administration-run only function that gets the site's most recent activity
     private function _get_site_stats() {
@@ -690,7 +689,7 @@ class Welcome extends MY_Controller {
         return $custom_wod_history;
     }
 
-    //Benchmark WODs are not tied to any Box. 
+    //Hero WODs are not tied to any Box. 
     private function _get_benchmark_wod() {
         $this->load->model('Wod_model');
         $benchmark_wod_array = $this->Wod_model->get_benchmark_wod();

@@ -373,7 +373,7 @@ class Member extends MY_Controller {
 					->setCellValue('F1', 'WOD Name')
 					->setCellValue('G1', 'Score Type')
 					->setCellValue('H1', 'Category')
-					->setCellValue('I1', 'Benchmark WOD?')
+					->setCellValue('I1', 'Hero WOD?')
 					->setCellValue('J1', 'Box WOD?')
 					->setCellValue('K1', 'Note');
 		

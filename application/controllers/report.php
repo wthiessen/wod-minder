@@ -359,7 +359,7 @@ class Report extends MY_Controller {
 		if (!!$report_data['benchmark_wod_count'])
 		{
 			$wod_data_html .= '<div data-role="collapsible" data-collapsed="false" data-theme="b" data-content-theme="a"> ';
-			$wod_data_html .= '<h4>Benchmark WODs Breakdown</h4>';
+			$wod_data_html .= '<h4>Hero WODs Breakdown</h4>';
 			$wod_data_html .= '<div class="ui-grid-b" >';
 			$wod_data_html .= '<div class="ui-block-a  mobile-grid-header ">Month Year</div>';
 			$wod_data_html .= '<div class="ui-block-b mobile-grid-header number-block ">Count</div>';
@@ -388,7 +388,7 @@ class Report extends MY_Controller {
 		{
 			
 			$wod_data_html .= '<div data-role="collapsible" data-collapsed="false" data-theme="b" data-content-theme="a"> ';
-			$wod_data_html .= '<h4>Benchmark WOD Locations</h4>';
+			$wod_data_html .= '<h4>Hero WOD Locations</h4>';
 			$wod_data_html .= '<div class="ui-grid-b" >';
 			$wod_data_html .= '<div class="ui-block-a  mobile-grid-header ">Location</div>';
 			$wod_data_html .= '<div class="ui-block-b mobile-grid-header number-block ">Count</div>';

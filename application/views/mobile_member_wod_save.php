@@ -12,7 +12,7 @@ $this->load->helper('form'); ?>
 		<div class ="error-messsage">
 			<p><?php echo isset($error_message) ? $error_message : '' ;?></p>
 		</div>
-		<div data-role="collapsible" data-mini="true" data-theme="a">
+		<div data-role="collapsible" data-collapsed="false" data-mini="true" data-theme="a">
 			<h3 data-theme="d">WOD Details</h3>
 			<?php if (strlen($buy_in) > 0): ?>
 			<div data-role="header"><h3>Buy In</h3></div>
@@ -58,6 +58,7 @@ $this->load->helper('form'); ?>
 						echo '<div class="ui-block-a">',form_input($score_minutes).'</div>';
 						echo '<div class="ui-block-b">'.form_input($score_seconds).'</div>';
 						echo '</fieldset>';
+						echo $score;
 						echo '<input type="hidden" name="score" id="_score" value="'.$score.'" />';
 						echo $close_div;
 					}
@@ -76,16 +77,16 @@ $this->load->helper('form'); ?>
 							$close_div;
 					
 					//Box Class Time
-					echo	$field_contain_div.
-								form_label('Class Time:', '_boxClassTime',$select_label_attrib).
-								$box_class_time_dropdown.
-							$close_div;
+					// echo	$field_contain_div.
+					// 			form_label('Class Time:', '_boxClassTime',$select_label_attrib).
+					// 			$box_class_time_dropdown.
+					// 		$close_div;
 					
 					//Member Rating Div
-					echo	$field_contain_div.
-								form_label('Member Rating:', '_memberRating',$select_label_attrib).
-								$member_rating_dropdown.
-							$close_div;
+					// echo	$field_contain_div.
+					// 			form_label('Member Rating:', '_memberRating',$select_label_attrib).
+					// 			$member_rating_dropdown.
+					// 		$close_div;
 					
 					//RX Div
                                         if (isset($rx))

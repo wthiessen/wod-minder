@@ -52,6 +52,8 @@ class MY_Controller extends CI_Controller
 		if ($add_empty_value)
 			$return_array[''] = '';
 
+		if (!is_array($lookup_array)) return [];
+
 		foreach ($lookup_array as $row)
 			$return_array[$row[$field_name_key]] = $row[$field_name_value]; 
 

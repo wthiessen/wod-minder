@@ -1,4 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
 /**
  * Administration Functions Class
  * 
@@ -103,8 +104,8 @@ class Administration_functions extends MY_Controller {
 			$benchmark_wod_list	.=	'<li><a data-ajax="false" href="'.base_url().'index.php/administration_functions/save_benchmark_wod/'.$row['wod_id'].'">'.$row['wod_name'].'</a></li>';
 		
 		$data['benchmark_wod_list']	=	$benchmark_wod_list;
-		$data['title']				=	'Benchmark WOD';
-		$data['heading']			=	'Save Benchmark WOD';
+		$data['title']				=	'Hero WOD';
+		$data['heading']			=	'Save Hero WOD';
 		$data['view']				=	'mobile_admin_benchmark_wod_select';
 		$this->load->vars($data);
 		$this->load->view('mobile_master', $data);
@@ -163,7 +164,7 @@ class Administration_functions extends MY_Controller {
 			$ret_val = $this->Wod_model->save_benchmark_wod($data);
 			if ($ret_val['success']) 
 			{
-				$this->session->set_flashdata('good_message', 'Benchmark WOD saved.');
+				$this->session->set_flashdata('good_message', 'Hero WOD saved.');
 				redirect('welcome/index/TRUE');
 			}
 			else
@@ -173,8 +174,8 @@ class Administration_functions extends MY_Controller {
 			}
 		}
 
-		$data['title']		=	'Benchmark WOD';
-		$data['heading']	=	'Save Benchmark WOD';
+		$data['title']		=	'Hero WOD';
+		$data['heading']	=	'Save Hero WOD';
 		$data['view']		=	'mobile_admin_benchmark_wod_save';
 		$data['id_value']	=	$id_value;
 		
@@ -316,7 +317,7 @@ class Administration_functions extends MY_Controller {
 		$this->load->model('Box_model');
 		
 		$this->form_validation->set_rules('wod_date'			, 'Date'			,	'trim|required');
-		$this->form_validation->set_rules('box_id'				, 'Box'				,	'trim|required');
+		$this->form_validation->set_rules('box_id'				, 'Box'				,	'trim'); //required
 		$this->form_validation->set_rules('simple_title'		, 'WOD Name'		,	'trim');
 		$this->form_validation->set_rules('simple_description'	, 'WOD Description'	,	'trim');
 		$this->form_validation->set_rules('buy_in'				, 'Buy-In'			,	'trim');
@@ -340,7 +341,7 @@ class Administration_functions extends MY_Controller {
 			if ($wod_type_id > 0)
 				$data['wod_type_id']	=	$wod_type_id;
                         
-			$scale_id				=	$this->input->post('scale_id');
+			$scale_id				=	1;//$this->input->post('scale_id');
 			$data['wod_id']				=	$this->input->post('wod_id');
 			if ($scale_id > 0)
 				$data['scale_id']		=	$scale_id;
@@ -381,7 +382,7 @@ class Administration_functions extends MY_Controller {
 		}
 		else
 		{
-			$box_wod['bw_id']				=	'';
+			$box_wod['bw_id']				=	1;
 			$box_wod['wod_date']			=	date('m/d/y');
 			$box_wod['buy_in']				=	'';
 			$box_wod['cash_out']				=	'';
@@ -389,11 +390,11 @@ class Administration_functions extends MY_Controller {
 			$box_wod['simple_description']	=	'';
 			$box_wod['wod_id']				=	'';
 			$box_wod['score_type']			=	'';
-			$box_wod['box_id']				=	'';
-                        $box_wod['scale_id']				=	'';
+			$box_wod['box_id']				=	1;
+         $box_wod['scale_id']				=	1;
 			$box_wod['wod_type_id']			=	'';
 			
-			$data['use_wizard']	=	TRUE; //Creating new user; use wizard
+			$data['use_wizard']	=	false; //Creating new user; use wizard
 		}
 
 		$data['title']		=	'Save WOD';
@@ -401,7 +402,7 @@ class Administration_functions extends MY_Controller {
 		$data['view']		=	'mobile_admin_box_wod_save';
 		
 		$data['error_message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('error_message');
-		
+				
 		if ($data['use_wizard'] && strlen($data['error_message'])	>	0)
 			$data['use_wizard']	=	FALSE;
 		else //var use_wizard has passed all checks, load all lists required to show the wizard
@@ -645,7 +646,7 @@ class Administration_functions extends MY_Controller {
 			$pick_day_list  .= '<li><a class="day-link" href="#IsBenchmarkWodPage">'.$day_text.'</a></li>';
 		
 		
-		//Get list of Benchmark WODs
+		//Get list of Hero WODs
 		$benchmark_wod_array = $this->Wod_model->get_benchmark_wod_list();
 		
 		foreach($benchmark_wod_array as $row) 

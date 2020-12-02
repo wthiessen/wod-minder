@@ -293,7 +293,7 @@ class Kiosk extends MY_Controller {
 		
 	}
 	
-	//Gets controls for both Box WODs and BenchMark WODs
+	//Gets controls for both Box WODs and Hero WODs
 	private function _get_kiosk_wod_form_data($score_type = 'O')
 	{
 		$data	=	null;

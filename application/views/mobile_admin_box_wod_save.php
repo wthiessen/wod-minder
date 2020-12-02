@@ -14,46 +14,46 @@
 				$('#_wodDate').val('');
 		});
 	});
-	$( '#IsBenchmarkWodPage' ).live( 'pageinit',function(){
-		$('.is-benchmark-link').click( function(){
-			var isBenchmarkLink	=	$(this).text();
-			if(isBenchmarkLink == 'No')
-				$('#_benchmarkWod').val('');
-		});
-	});
-	$( '#PickBenchmarkWodPage' ).live( 'pageinit',function(){
-		$('.benchmark-wod-link').click( function(){
-			var benchmarkWodId	=	$(this).attr('id').replace('wod_id_','');
-			var wod				=	document.getElementById('wod_data_' + benchmarkWodId);
-			var wodTitle		=	wod.getAttribute('data-wod-title');
-			var wodDescription	=	wod.getAttribute('data-wod-description');
-			var scoreType		=	wod.getAttribute('data-score-type');
+	// $( '#IsBenchmarkWodPage' ).live( 'pageinit',function(){
+	// 	$('.is-benchmark-link').click( function(){
+	// 		var isBenchmarkLink	=	$(this).text();
+	// 		if(isBenchmarkLink == 'No')
+	// 			$('#_benchmarkWod').val('');
+	// 	});
+	// });
+	// $( '#PickBenchmarkWodPage' ).live( 'pageinit',function(){
+	// 	$('.benchmark-wod-link').click( function(){
+	// 		var benchmarkWodId	=	$(this).attr('id').replace('wod_id_','');
+	// 		var wod				=	document.getElementById('wod_data_' + benchmarkWodId);
+	// 		var wodTitle		=	wod.getAttribute('data-wod-title');
+	// 		var wodDescription	=	wod.getAttribute('data-wod-description');
+	// 		var scoreType		=	wod.getAttribute('data-score-type');
 
-			$('#_benchmarkWod').val(benchmarkWodId);
-			$('#_scoreType').val(scoreType);
-			$('#_simpleTitle').val(wodTitle);
-			$('#_simpleDescription').val(wodDescription);
+	// 		$('#_benchmarkWod').val(benchmarkWodId);
+	// 		$('#_scoreType').val(scoreType);
+	// 		$('#_simpleTitle').val(wodTitle);
+	// 		$('#_simpleDescription').val(wodDescription);
 			
-		});
-	});
-	$( '#PickScoretypePage' ).live( 'pageinit',function(){
-		$('.score-type-link').click( function(){
-			var scoreTypeId	=	$(this).attr('id').replace('score_type_','');
-			$('#_scoreType').val(scoreTypeId);
-		});
-	});
-	$( '#PickScalePage' ).live( 'pageinit',function(){
-		$('.scale-link').click( function(){
-			var scaleId	=	$(this).attr('id').replace('scale_id_','');
-			$('#_scale').val(scaleId);
-		});
-	});
-        $( '#BuyInPage' ).live( 'pageinit',function(){
-		$('#_buyInButton').click( function(){
-			var textValue = $('#_wizardBuyIn').val();
-			$('#_buyIn').val(textValue);
-		});
-	});
+	// 	});
+	// });
+	// $( '#PickScoretypePage' ).live( 'pageinit',function(){
+	// 	$('.score-type-link').click( function(){
+	// 		var scoreTypeId	=	$(this).attr('id').replace('score_type_','');
+	// 		$('#_scoreType').val(scoreTypeId);
+	// 	});
+	// });
+	// $( '#PickScalePage' ).live( 'pageinit',function(){
+	// 	$('.scale-link').click( function(){
+	// 		var scaleId	=	$(this).attr('id').replace('scale_id_','');
+	// 		$('#_scale').val(scaleId);
+	// 	});
+	// });
+   //      $( '#BuyInPage' ).live( 'pageinit',function(){
+	// 	$('#_buyInButton').click( function(){
+	// 		var textValue = $('#_wizardBuyIn').val();
+	// 		$('#_buyIn').val(textValue);
+	// 	});
+	// });
 	$( '#WodPage' ).live( 'pageinit',function(){
 		$('#_wodButton').click( function(){
 			var textValue = $('#_wizardWodName').val();
@@ -62,12 +62,12 @@
 			$('#_simpleDescription').val(textValue);
 		});
 	});	
-	$( '#CashoutPage' ).live( 'pageinit',function(){
-		$('#_cashoutButton').click( function(){
-			var textValue = $('#_wizardCashout').val();
-			$('#_cashOut').val(textValue);
-		});
-	});
+	// $( '#CashoutPage' ).live( 'pageinit',function(){
+	// 	$('#_cashoutButton').click( function(){
+	// 		var textValue = $('#_wizardCashout').val();
+	// 		$('#_cashOut').val(textValue);
+	// 	});
+	// });
 
 	
 </script>
@@ -80,7 +80,7 @@ $this->load->helper('form'); ?>
 		 *		if user not logged in to facebook and twitter, prompt them to do that here
 		 *		if box's fb page id and twitter id are not saved, warn them here
 		 * Pick day (tomorrow - Tuesday, January 7th, 2013, today - Monday, January 6th, 2013
-		 * Answer question:  Benchmark WOD?
+		 * Answer question:  Hero WOD?
 		 *	If so, pick benchmark wod (and store that data in a var to populate later..
 		 *	If not, get name of wod
 		 * Pick Score Type from predefined list (will already be set if user selected benchmark wod)
@@ -93,7 +93,7 @@ $this->load->helper('form'); ?>
 		 */
 	?>
 	<?php echo $hidden_wod_info; ?>
-	<div data-role="page" id="PickFacilityPage">'.
+	<!-- <div data-role="page" id="PickFacilityPage">'.
 		<div data-role="header">
 			<a href="<?php echo base_url(); ?>index.php/welcome/index/TRUE" data-ajax ="false" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
 			<h1>Pick Facility</h1>
@@ -103,7 +103,8 @@ $this->load->helper('form'); ?>
 				<?php echo $facility_list; ?>
 			</ul>
 		</div>
-	</div>
+	</div>Scale:
+   -->
 	<div data-role="page" id="PickDayPage">
 		<div data-role="header">
 			<a href="#PickFacilityPage" data-icon="back" data-iconpos="notext" data-direction="reverse">Back</a>
@@ -115,10 +116,10 @@ $this->load->helper('form'); ?>
 			</ul>
 		</div>
 	</div>
-	<div data-role="page" id="IsBenchmarkWodPage">
+	<!-- <div data-role="page" id="IsBenchmarkWodPage">
 		<div data-role="header">
 			<a href="#PickDayPage" data-icon="back" data-iconpos="notext" data-direction="reverse">Back</a>
-			<h1>Benchmark WOD?</h1>
+			<h1>Hero WOD?</h1>
 		</div>
 		<div data-role="fieldcontain">
 			<ul data-role="listview" data-filter="false" data-theme="d" data-divider-theme="d">
@@ -130,7 +131,7 @@ $this->load->helper('form'); ?>
 	<div data-role="page" id="PickBenchmarkWodPage">
 		<div data-role="header">
 			<a href="#IsBenchmarkWodPage" data-icon="back" data-iconpos="notext" data-direction="reverse">Back</a>
-			<h1>Pick Benchmark WOD</h1>
+			<h1>Pick Hero WOD</h1>
 		</div>
 		<div data-role="fieldcontain">
 			<ul data-role="listview" data-filter="true" data-filter-placeholder="Pick Day..." data-filter-theme="d" data-theme="d" data-divider-theme="d">
@@ -159,7 +160,7 @@ $this->load->helper('form'); ?>
 				<?php echo $scale_list; ?>
 			</ul>
 		</div>
-	</div>
+	</div> -->
 	<div data-role="page" id="WodPage">
 		<div data-role="header">
 			<a href="#PickScoretypePage" data-icon="back" data-iconpos="notext" data-direction="reverse">Back</a>
@@ -211,15 +212,15 @@ $this->load->helper('form'); ?>
 		$select_label_attrib	=	array('class' => 'select');
 		$field_contain_div	=	'<div data-role="fieldcontain">';
 		$close_div	=	'</div>';
-		$attributes		=	array(	'id'			=>	'_profileForm',
+		$attributes		=	array(	'id'			=>	'_padministration_functionsrofileForm',
 									'data-ajax'	=>	'false');
 		echo form_open('administration_functions/save_box_wod/'.$bw_id,	$attributes);
 
 		//Box Div
-		echo	$field_contain_div.
-					form_label('Box:', '_box',$select_label_attrib).
-					$box_dropdown.
-				$close_div;
+		// echo	$field_contain_div.
+		// 			form_label('Box:', '_box',$select_label_attrib).
+		// 			$box_dropdown.
+		// 		$close_div;
 		
 		//WOD Date Div
 		echo	$field_contain_div.
@@ -228,10 +229,10 @@ $this->load->helper('form'); ?>
 				$close_div;
 		
 		//Benchmark Wod (if applicable)
-		echo	$field_contain_div.
-					form_label('Benchmark WOD (if applicable):', '_benchmarkWod',$select_label_attrib).
-					$benchmark_wod_dropdown.
-				$close_div;
+		// echo	$field_contain_div.
+		// 			form_label('Hero WOD (if applicable):', '_benchmarkWod',$select_label_attrib).
+		// 			$benchmark_wod_dropdown.
+		// 		$close_div;
 		
 		//Score Type Div
 		echo	$field_contain_div.
@@ -240,10 +241,10 @@ $this->load->helper('form'); ?>
 				$close_div;
                 
 		//Scale Div
-		echo	$field_contain_div.
-					form_label('Scale:', '_scale',$select_label_attrib).
-					$scale_dropdown.
-				$close_div;
+		// echo	$field_contain_div.
+		// 			form_label('Scale:', '_scale',$select_label_attrib).
+		// 			$scale_dropdown.
+		// 		$close_div;
 
 		//WOD Name
 		echo	$field_contain_div.
@@ -252,10 +253,10 @@ $this->load->helper('form'); ?>
 				$close_div;
 
 		//Buy In Div
-		echo	$field_contain_div.
-					form_label('Buy In:', '_buyIn').
-					form_textarea($buy_in).
-				$close_div;
+		// echo	$field_contain_div.
+		// 			form_label('Buy In:', '_buyIn').
+		// 			form_textarea($buy_in).
+		// 		$close_div;
 
 		//WOD
 		echo	$field_contain_div.
@@ -264,10 +265,10 @@ $this->load->helper('form'); ?>
 				$close_div;
 		
 		//Cash Out
-		echo	$field_contain_div.
-					form_label('Cash Out:', '_cashOut').
-					form_textarea($cash_out).
-				$close_div;
+		// echo	$field_contain_div.
+		// 			form_label('Cash Out:', '_cashOut').
+		// 			form_textarea($cash_out).
+		// 		$close_div;
 
 		//WOD Type Div
 		//This came from Andrew, but I don't think I like it nor have a use for it

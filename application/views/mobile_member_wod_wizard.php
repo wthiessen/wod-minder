@@ -14,4 +14,4 @@
 	</div><!--/content-primary -->	
 	<?php echo $wod_wizard_html; ?>
 </div>
-Hidden pages of all benchmark wods here
+Hidden pages of all Hero WODs here

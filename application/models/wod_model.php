@@ -123,7 +123,7 @@ class Wod_model extends CI_Model {
 		
 		return array('success'  =>  true);
 	}
-	//Returns a simple list of the benchmark WODs completed and a count of how many completed
+	//Returns a simple list of the Hero WODs completed and a count of how many completed
 	function get_member_benchmark_wods($member_id = '') {
 		
 		$member_id	=	$member_id == '' ? $this->session->userdata('member_id') : $member_id;
@@ -389,7 +389,7 @@ class Wod_model extends CI_Model {
 		$query = $this->db->query($sql);
 		
 		if ($query->num_rows() == 0)
-			return false;
+			return [];
 		
 		return	$query->result_array();	
 	}
@@ -432,7 +432,7 @@ class Wod_model extends CI_Model {
 	}
 	
 	/*
-	 * Returns movements associated with benchmark wods (for Wod Wizard)
+	 * Returns movements associated with Hero WODs (for Wod Wizard)
 	 */
 	function get_benchmark_wod_movements()
 	{

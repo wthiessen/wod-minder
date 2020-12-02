@@ -249,7 +249,7 @@ class Event extends MY_Controller {
 		$this->form_validation->set_rules('simple_title'			, 'WOD Name'		,	'trim|required');
 		$this->form_validation->set_rules('wod_date'				, 'WOD Date'		,	'trim|required');
 		$this->form_validation->set_rules('score_type'				, 'Score Type'		,	'trim|required');
-		$this->form_validation->set_rules('wod_id'					, 'Benchmark WOD' 	, 'trim');
+		$this->form_validation->set_rules('wod_id'					, 'Hero WOD' 	, 'trim');
 		$this->form_validation->set_rules('remainder'				, 'Remainder Name' 	, 'trim');
 		$this->form_validation->set_rules('simple_description'		, 'Description' 	, 'trim');
 		$this->form_validation->set_rules('note'					, 'Note' 			, 'trim');

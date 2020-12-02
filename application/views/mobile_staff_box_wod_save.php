@@ -174,7 +174,7 @@ if ($use_wizard):
      * 		if user not logged in to facebook and twitter, prompt them to do that here
      * 		if box's fb page id and twitter id are not saved, warn them here
      * Pick day (tomorrow - Tuesday, January 7th, 2013, today - Monday, January 6th, 2013
-     * Answer question:  Benchmark WOD?
+     * Answer question:  Hero WOD?
      * 	If so, pick benchmark wod (and store that data in a var to populate later..
      * 	If not, get name of wod
      * Pick Score Type from predefined list (will already be set if user selected benchmark wod)
@@ -259,7 +259,7 @@ if ($use_wizard):
     <div data-role="page" id="IsBenchmarkWodPage">
         <div data-role="header">
             <a href="#DailyMessagePage" data-icon="back" data-iconpos="notext" data-direction="reverse">Back</a>
-            <h1>Benchmark WOD?</h1>
+            <h1>Hero WOD?</h1>
         </div>
         <div data-role="fieldcontain">
             <ul data-role="listview" data-filter="false" data-theme="d" data-divider-theme="d">
@@ -271,7 +271,7 @@ if ($use_wizard):
     <div data-role="page" id="PickBenchmarkWodPage">
         <div data-role="header">
             <a href="#IsBenchmarkWodPage" data-icon="back" data-iconpos="notext" data-direction="reverse">Back</a>
-            <h1>Pick Benchmark WOD</h1>
+            <h1>Pick Hero WOD</h1>
         </div>
         <div data-role="fieldcontain">
             <ul data-role="listview" data-filter="true" data-filter-placeholder="Pick Day..." data-filter-theme="d" data-theme="d" data-divider-theme="d">
@@ -364,53 +364,53 @@ echo '<input id="_formUniqid" type="hidden" value="' . $form_uniqid . '" name="f
 echo '<input id="_facebook_text" type="hidden" value="" name="facebook_text">';
 
 //Tier
-if (!!$box_tier_dropdown) {
-    echo $field_contain_div .
-    form_label('Tier:', '_tier', $select_label_attrib) .
-    $box_tier_dropdown .
-    $close_div;
-}
+// if (!!$box_tier_dropdown) {
+//     echo $field_contain_div .
+//     form_label('Tier:', '_tier', $select_label_attrib) .
+//     $box_tier_dropdown .
+//     $close_div;
+// }
 
 //Daily Message Div	
-echo $field_contain_div .
- form_label('Daily Message:', '_dailyMessage') .
- form_textarea($daily_message) .
- $close_div;
+// echo $field_contain_div .
+//  form_label('Daily Message:', '_dailyMessage') .
+//  form_textarea($daily_message) .
+//  $close_div;
 
-echo $field_contain_div .
- '<fieldset data-role="controlgroup">
-				<legend>Daily Image Source:</legend>
-					<input type="radio" name="image-source" id="radio-choice-21" value="pc" checked="checked" />
-					<label for="radio-choice-21">Upload from my device</label>
-					<input type="radio" name="image-source" id="radio-choice-22" value="web"  />
-					<label for="radio-choice-22">Paste link from the web</label>
-				</fieldset>' .
- $close_div;
+// echo $field_contain_div .
+//  '<fieldset data-role="controlgroup">
+// 				<legend>Daily Image Source:</legend>
+// 					<input type="radio" name="image-source" id="radio-choice-21" value="pc" checked="checked" />
+// 					<label for="radio-choice-21">Upload from my device</label>
+// 					<input type="radio" name="image-source" id="radio-choice-22" value="web"  />
+// 					<label for="radio-choice-22">Paste link from the web</label>
+// 				</fieldset>' .
+//  $close_div;
 //Daily Image
-$full_image_name = base_url() . '/staff_images/box_wod/' . ($image_name['value'] === '' ? 'no_image_filler.jpg' : $image_name['value']);
-echo '<div id="_imageUploadDiv">';
-echo $field_contain_div .
- form_label('Daily Image:', '_imageName') .
- '<input type="file" id ="_imageName" name="userfile" />' .
- $close_div;
-echo $field_contain_div .
- '<img id="_dailyImage" src="' . $full_image_name . '" />' .
- $close_div;
-echo '</div>';
+// $full_image_name = base_url() . '/staff_images/box_wod/' . ($image_name['value'] === '' ? 'no_image_filler.jpg' : $image_name['value']);
+// echo '<div id="_imageUploadDiv">';
+// echo $field_contain_div .
+//  form_label('Daily Image:', '_imageName') .
+//  '<input type="file" id ="_imageName" name="userfile" />' .
+//  $close_div;
+// echo $field_contain_div .
+//  '<img id="_dailyImage" src="' . $full_image_name . '" />' .
+//  $close_div;
+// echo '</div>';
 
 //Daily Image Link
-echo '<div id="_imageLinkDiv">';
-echo $field_contain_div .
- form_label('Daily Image:', '_imageLink') .
- '<input id ="_imageLink" name="image_link" placeholder="Paste Image URL here"/>' .
- $close_div;
-echo '</div>';
+// echo '<div id="_imageLinkDiv">';
+// echo $field_contain_div .
+//  form_label('Daily Image:', '_imageLink') .
+//  '<input id ="_imageLink" name="image_link" placeholder="Paste Image URL here"/>' .
+//  $close_div;
+// echo '</div>';
 
 //Image Caption
-echo $field_contain_div .
- form_label('Image Caption:', '_imageCaption') .
- form_textarea($image_caption) .
- $close_div;
+// echo $field_contain_div .
+//  form_label('Image Caption:', '_imageCaption') .
+//  form_textarea($image_caption) .
+//  $close_div;
 
 
 //WOD Date Div
@@ -420,10 +420,10 @@ echo $field_contain_div .
  $close_div;
 
 //Benchmark Wod (if applicable)
-echo $field_contain_div .
- form_label('Benchmark WOD (if applicable):', '_benchmarkWod', $select_label_attrib) .
- $benchmark_wod_dropdown .
- $close_div;
+// echo $field_contain_div .
+//  form_label('Hero WOD (if applicable):', '_benchmarkWod', $select_label_attrib) .
+//  $benchmark_wod_dropdown .
+//  $close_div;
 
 //Score Type Div
 echo $field_contain_div .
@@ -432,10 +432,10 @@ echo $field_contain_div .
  $close_div;
 
 //Scale Div
-echo $field_contain_div .
- form_label('Scale:', '_scale', $select_label_attrib) .
- $scale_dropdown .
- $close_div;
+// echo $field_contain_div .
+//  form_label('Scale:', '_scale', $select_label_attrib) .
+//  $scale_dropdown .
+//  $close_div;
 
 
 //WOD Name
@@ -445,10 +445,10 @@ echo $field_contain_div .
  $close_div;
 
 //Buy In Div
-echo $field_contain_div .
- form_label('Buy In:', '_buyIn') .
- form_textarea($buy_in) .
- $close_div;
+// echo $field_contain_div .
+//  form_label('Buy In:', '_buyIn') .
+//  form_textarea($buy_in) .
+//  $close_div;
 
 //WOD
 echo $field_contain_div .
@@ -457,18 +457,18 @@ echo $field_contain_div .
  $close_div;
 
 //Cash Out
-echo $field_contain_div .
- form_label('Cash Out:', '_cashOut') .
- form_textarea($cash_out) .
- $close_div;
+// echo $field_contain_div .
+//  form_label('Cash Out:', '_cashOut') .
+//  form_textarea($cash_out) .
+//  $close_div;
 
-echo '<div data-role="fieldcontain">' .
- form_label('Post To Facebook:', '_postToFacebook') .
- '<select id="_postToFacebook" name ="post_to_facebook" data-role="slider">
-					<option value="no">No</option>
-					<option selected="selected" value="yes">Yes</option>
-				</select> 
-			</div>';
+// echo '<div data-role="fieldcontain">' .
+//  form_label('Post To Facebook:', '_postToFacebook') .
+//  '<select id="_postToFacebook" name ="post_to_facebook" data-role="slider">
+// 					<option value="no">No</option>
+// 					<option selected="selected" value="yes">Yes</option>
+// 				</select> 
+// 			</div>';
 //WOD Type Div
 //This came from Andrew, but I don't think I like it nor have a use for it
 //Keeping it here for now, but hiding it b/c it's just taking up screen space

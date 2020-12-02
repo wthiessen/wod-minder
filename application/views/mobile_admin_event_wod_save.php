@@ -45,7 +45,7 @@
 		
 		//Benchmark Wod (if applicable)
 		echo	$field_contain_div.
-					form_label('Benchmark WOD (if applicable):', '_benchmarkWod',$select_label_attrib).
+					form_label('Hero WOD (if applicable):', '_benchmarkWod',$select_label_attrib).
 					$benchmark_wod_dropdown.
 				$close_div;
 		

@@ -239,7 +239,7 @@ class Report_model extends CI_Model {
 											GROUP BY mw.member_id
 											UNION
 											SELECT 
-												'Solo Benchmark WODs' AS place, 
+												'Solo Hero WODs' AS place, 
 												COUNT(mw.mw_id) AS wod_count
 											FROM 
 												member_wod mw

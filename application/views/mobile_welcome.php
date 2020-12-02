@@ -41,29 +41,29 @@
         <p>
             <?php echo anchor('#Max', 'Max', array('data-role' => 'button')); ?>	
         </p>
-        <?php if ($is_competitor): ?>
+        <!-- <?php if ($is_competitor): ?>
             <p>
                 <?php echo anchor('event/select_event/member', 'Event', array('data-ajax' => 'false',
                     'data-role' => 'button'));
                 ?>	
             </p>
-            <?php endif; ?>
-        <p>
+            <?php endif; ?> -->
+        <!-- <p>
             <?php echo anchor('#WeightJournal', 'Weight Journal', array('data-role' => 'button')); ?>	
         </p>
         <p>
             <?php //Hiding paleo for now because feature sucks and nobody uses it
             //echo anchor('#Paleo', 'Paleo', array('data-role'=>'button'));
             ?>	
-        </p>
-        <p>
+        </p> -->
+        <!-- <p>
         <?php echo anchor('#BarbellCalculator', 'Barbell Calculator', array('data-role' => 'button')); ?>	
         </p>
         <p>
         <?php echo anchor('report', 'My CrossFit Summary', array('data-ajax' => 'false', 'data-theme' => 'e',
             'data-role' => 'button'));
         ?>	
-        </p>
+        </p> -->
         <!-- Future Home of Find-A-Fit
         <p>-->
         <?php //echo anchor('member/update', 'My Profile', array(	'data-ajax'=>'false',
@@ -313,7 +313,7 @@ echo anchor('#Main', 'Return', array('data-direction' => 'reverse',
             <?php echo anchor('#SaveBoxWod', 'From My Box', array('data-role' => 'button')); ?>	
             </p>
             <p>
-<?php echo anchor('#BenchmarkWodMenu', 'Benchmark WODs', array('data-role' => 'button')); ?>
+<?php echo anchor('#BenchmarkWodMenu', 'Hero WODs', array('data-role' => 'button')); ?>
             </p>
             <p>
 <?php echo anchor(base_url() . 'index.php/wod/save_member_custom_wod/', 'Custom WOD', array('data-ajax' => 'false',
@@ -328,7 +328,7 @@ echo anchor('#Main', 'Return', array('data-direction' => 'reverse',
 <div data-role="page" id="BenchmarkWodMenu">
     <div data-role="header" data-theme="f">
         <div data-role="header">
-            <h1>Benchmark WOD</h1>
+            <h1>Hero WOD</h1>
             <a href="#Main" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
         </div><!-- /header -->
     </div><!-- /header -->
@@ -392,7 +392,7 @@ echo anchor('#Main', 'Return', array('data-direction' => 'reverse',
 <?php echo anchor('#CustomWODHistory', 'Custom WODs', array('data-role' => 'button')); ?>	
             </p>
             <p>
-                <?php echo anchor('#BenchmarkWodHistory', 'Benchmark WODs', array('data-role' => 'button')); ?>	
+                <?php echo anchor('#BenchmarkWodHistory', 'Hero WODs', array('data-role' => 'button')); ?>	
             </p>
             <p>
 <?php echo anchor('wod/search', 'Search', array('data-ajax' => 'false',
@@ -453,17 +453,17 @@ echo anchor('#Main', 'Return', array('data-direction' => 'reverse',
 
     <div data-role="header">
         <a href="#Main" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
-        <h1>Benchmark WOD History</h1>
+        <h1>Hero WOD History</h1>
     </div>
     <div data-role="content">		
         <div class="content-primary">	
 <?php if (isset($user_benchmark_wod_history)): ?>
-                <ul data-role="listview" data-filter="true" data-filter-placeholder="Search benchmark WODs..." data-filter-theme="d" data-theme="d" data-divider-theme="d">
+                <ul data-role="listview" data-filter="true" data-filter-placeholder="Search Hero WODs..." data-filter-theme="d" data-theme="d" data-divider-theme="d">
     <?php echo $user_benchmark_wod_history; ?>
                 </ul>
 <?php else: ?>
                 <p>
-                    No benchmark WODs saved
+                    No Hero WODs saved
                 </p>
 <?php endif; ?>
         </div>
@@ -536,13 +536,13 @@ echo anchor('#Main', 'Return', array('data-direction' => 'reverse',
             </p>
             <p>
 	 <?php 
-	//  echo anchor('administration_functions/save_benchmark_wod', 'Save CrossFit Benchmark WOD', array('data-ajax' => 'false',
+	//  echo anchor('administration_functions/save_benchmark_wod', 'Save CrossFit Hero WOD', array('data-ajax' => 'false',
       //   'data-role' => 'button'));
     ?>	
             </p>
             <p>
 	 <?php 
-	//  echo anchor('administration_functions/select_benchmark_wod', 'Edit CrossFit Benchmark WOD', array('data-ajax' => 'false',
+	//  echo anchor('administration_functions/select_benchmark_wod', 'Edit CrossFit Hero WOD', array('data-ajax' => 'false',
       //   'data-role' => 'button'));
     ?>	
             </p>
@@ -628,7 +628,7 @@ echo anchor('#Main', 'Return', array('data-direction' => 'reverse',
             <a href="#Main" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
             <h1>Recent Site Activity</h1>
         </div><!-- /header -->
-
+		  SocialMediaConnectPage
         <div data-role="content">	
     <?php echo $site_stats; ?>
         </div><!-- content, RecentSiteActivity -->
@@ -647,7 +647,7 @@ echo anchor('#Main', 'Return', array('data-direction' => 'reverse',
 
         <div data-role="content">
             <p>
-    <?php echo anchor('staff/save_box_wod_for_staff', 'Save Box WOD', array('data-ajax' => 'false',
+    <?php echo anchor('staff/save_box_wod_for_staff', 'Create Box WOD', array('data-ajax' => 'false',
         'data-role' => 'button'));
     ?>	
             </p>
@@ -669,12 +669,6 @@ echo anchor('#Main', 'Return', array('data-direction' => 'reverse',
                 <p>
                     <?php echo anchor('#Leaderboard', 'Leaderboard', array('data-role' => 'button')); ?>	
                 </p>
-                <p>
-                    <?php echo anchor('#TrainingLog', 'Training Log', array('data-role' => 'button')); ?>	
-                </p>
-                <p>
-                    <?php echo anchor($facebook_link, 'Testing Facebook', array('data-role' => 'button', 'data-theme' => 'b')); ?>	
-                </p>
     <?php endif; ?>
         </div><!-- content, StaffFunctions -->
     </div><!-- /page, StaffFunctions -->
@@ -688,16 +682,16 @@ echo anchor('#Main', 'Return', array('data-direction' => 'reverse',
         </div><!-- /header -->
 
         <div data-role="content">
-            <p>
+            <!-- <p>
     <?php echo anchor('staff/save_staff_training_log', 'Save Training', array('data-ajax' => 'false',
         'data-role' => 'button'));
     ?>	
-            </p>
-            <p>
+            </p> -->
+            <!-- <p>
     <?php echo anchor('staff/get_staff_training_log_history', 'Edit Training', array('data-ajax' => 'false',
         'data-role' => 'button'));
     ?>	
-            </p>
+            </p> -->
         </div><!-- content, Training Log -->
     </div><!-- /page, Training Log -->
 
@@ -728,7 +722,7 @@ echo anchor('#Main', 'Return', array('data-direction' => 'reverse',
     ?>	
             </p>
             <p>
-    <?php echo anchor('staff/box_leader_board', 'Benchmark WODs', array('data-ajax' => 'false',
+    <?php echo anchor('staff/box_leader_board', 'Hero WODs', array('data-ajax' => 'false',
         'data-role' => 'button'));
     ?>	
             </p>
