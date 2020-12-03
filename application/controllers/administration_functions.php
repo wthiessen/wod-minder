@@ -247,7 +247,7 @@ class Administration_functions extends MY_Controller {
 		$this->load->model('Member_model');
 		$this->Member_model->erase_members_existance($member_id);
 		
-		$this->session->set_flashdata('error_message', 'Member completely removed from WOD Minder');
+		$this->session->set_flashdata('error_message', 'Member completely removed from RX Track');
 		redirect ('welcome/index/TRUE');
 		
 	}

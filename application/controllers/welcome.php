@@ -75,7 +75,7 @@ class Welcome extends MY_Controller {
         $data['site_admin'] = $this->is_admin;
         $data['display_name'] = $this->display_name;
 
-        $data['title'] = 'WOD Minder';
+        $data['title'] = 'RX Track';
         $data['heading'] = 'Welcome';
         $data['view'] = 'mobile_welcome';
 
@@ -211,7 +211,7 @@ class Welcome extends MY_Controller {
 
 
 
-        $data['title'] = 'WOD Minder Site Stats';
+        $data['title'] = 'RX Track Site Stats';
         $data['site_count_grid'] = $site_count_grid;
         $data['active_member_count_grid'] = $active_member_count_grid;
         $data['power_user_count_grid'] = $power_user_count_grid;
@@ -293,7 +293,7 @@ class Welcome extends MY_Controller {
     private function _get_error_logs() {
         $ret_val = '';
         $line_to_remove = "<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>";
-        $directory = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'application' . DIRECTORY_SEPARATOR . 'logs' . DIRECTORY_SEPARATOR;
+        $directory = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'wod-minder' . DIRECTORY_SEPARATOR . 'application' . DIRECTORY_SEPARATOR . 'logs' . DIRECTORY_SEPARATOR;
 
         if (!is_dir($directory))
             exit('Invalid diretory path for log files');

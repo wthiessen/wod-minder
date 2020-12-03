@@ -9,7 +9,7 @@
             'data-iconpos' => 'notext'
         ));
         ?>
-        <h1>WOD Minder</h1>
+        <h1>RX Track</h1>
         <?php
         echo anchor('member/logout', 'Logout', array('data-ajax' => 'false',
             'class' => 'ui-btn-right',

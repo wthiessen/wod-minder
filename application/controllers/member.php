@@ -832,8 +832,8 @@ class Member extends MY_Controller {
 			);
 
 
-		$data['title']		=	'WOD Minder';
-		$data['heading']	=	'WOD Minder Login';
+		$data['title']		=	'RX Track';
+		$data['heading']	=	'RX Track Login';
 		$data['view'] = 'mobile_member_login';
 		$this->load->vars($data);
 		$this->load->view('mobile_master', $data);

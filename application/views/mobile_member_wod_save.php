@@ -14,7 +14,7 @@ $this->load->helper('form'); ?>
 		</div>
 		<div data-role="collapsible" data-collapsed="false" data-mini="true" data-theme="a">
 			<h3 data-theme="d">WOD Details</h3>
-			<?php if (strlen($buy_in) > 0): ?>
+			<?php if (strlen($buy_in) > 0 && false): ?>
 			<div data-role="header"><h3>Buy In</h3></div>
 			<p>
 				<?php echo $buy_in;?>
@@ -25,7 +25,7 @@ $this->load->helper('form'); ?>
 			<?php echo (strlen($wod_type) == 0) ? '' : '<p><strong>Type of WOD:</strong>  '.$wod_type.'</p>'; ?>
 			<?php echo $simple_description;?>
 
-			<?php if (strlen($cash_out) > 0): ?>
+			<?php if (strlen($cash_out) > 0 && false): ?>
 			<div data-role="header"><h3>Cash Out</h3></div>
 			<p>
 				<?php echo $cash_out;?>
