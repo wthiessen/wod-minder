@@ -598,7 +598,10 @@ class Wod extends MY_Controller {
                         
 			$data['member_rating']	=	$this->input->post('member_rating');	
 			$data['bct_id']	=	$this->input->post('bct_id');
-			
+
+			// TODO update to only do this the first time the member wod is opened
+			$data['note'] = $data['note'] === '' ? strip_tags($member_box_wod['simple_description']) : $data['note'];
+
 			$ret_val = $this->Box_model->save_member_box_wod($data);
 			if ($ret_val['success']) 
 			{

@@ -293,7 +293,7 @@ class Welcome extends MY_Controller {
     private function _get_error_logs() {
         $ret_val = '';
         $line_to_remove = "<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>";
-        $directory = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'wod-minder' . DIRECTORY_SEPARATOR . 'application' . DIRECTORY_SEPARATOR . 'logs' . DIRECTORY_SEPARATOR;
+        $directory = $_SERVER['DOCUMENT_ROOT']  . DIRECTORY_SEPARATOR . 'application' . DIRECTORY_SEPARATOR . 'logs' . DIRECTORY_SEPARATOR;
 
         if (!is_dir($directory))
             exit('Invalid diretory path for log files');
