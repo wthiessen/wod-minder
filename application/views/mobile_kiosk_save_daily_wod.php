@@ -2,7 +2,7 @@
 $this->load->helper('form'); ?>
 <div data-role="page" id="Main">
 	<div data-role="header">
-		<a href= "<?php echo base_url()?>index.php/kiosk/pick_box" data-icon="back" data-iconpos="notext" data-ajax="false">Pick Box</a>
+		<a href= "<?php echo base_url()?>kiosk/pick_box" data-icon="back" data-iconpos="notext" data-ajax="false">Pick Box</a>
 		<h1><?php  echo $box_name ?></h1>
 	</div><!-- /header -->
 	<div data-role="header">

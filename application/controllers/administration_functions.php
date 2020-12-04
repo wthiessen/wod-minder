@@ -28,7 +28,7 @@ class Administration_functions extends MY_Controller {
 			redirect ('member/login');
 			
 		if (!$this->is_admin)
-			redirect ('welcome/index/TRUE');
+			redirect ('welcome');
 		
 		$directory = $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR.'application'.DIRECTORY_SEPARATOR.'logs'.DIRECTORY_SEPARATOR;
 		
@@ -39,7 +39,7 @@ class Administration_functions extends MY_Controller {
 		if ($result)
 		{
 			$this->session->set_flashdata('error_message', 'Log File ('.$log_file_name.') Deleted');
-			redirect ('welcome/index/TRUE');
+			redirect ('welcome');
 		}
 		
 		echo 'Could not delete file:'.$directory.$log_file_name;
@@ -51,7 +51,7 @@ class Administration_functions extends MY_Controller {
 			redirect ('member/login');
 			
 		if (!$this->is_admin)
-			redirect ('welcome/index/TRUE');
+			redirect ('welcome');
 		
 		$audit_log_list	=	'';
 		$this->load->model('Audit_model');
@@ -95,13 +95,13 @@ class Administration_functions extends MY_Controller {
 			redirect ('member/login');
 			
 		if (!$this->is_admin)
-			redirect ('welcome/index/TRUE');
+			redirect ('welcome');
 
 		$benchmark_wod_list	=	'';
 		$this->load->model('Wod_model');
 		$benchmark_wod_array	=	$this->Wod_model->get_benchmark_wod();
 		foreach($benchmark_wod_array as $row) 
-			$benchmark_wod_list	.=	'<li><a data-ajax="false" href="'.base_url().'index.php/administration_functions/save_benchmark_wod/'.$row['wod_id'].'">'.$row['wod_name'].'</a></li>';
+			$benchmark_wod_list	.=	'<li><a data-ajax="false" href="'.base_url().'administration_functions/save_benchmark_wod/'.$row['wod_id'].'">'.$row['wod_name'].'</a></li>';
 		
 		$data['benchmark_wod_list']	=	$benchmark_wod_list;
 		$data['title']				=	'Hero WOD';
@@ -121,7 +121,7 @@ class Administration_functions extends MY_Controller {
 			redirect ('member/login');
 			
 		if (!$this->is_admin)
-			redirect ('welcome/index/TRUE');
+			redirect ('welcome');
 	
 		$id_value = $this->uri->segment(ID_VALUE);//id_value
 		$this->load->model('Wod_model');
@@ -165,7 +165,7 @@ class Administration_functions extends MY_Controller {
 			if ($ret_val['success']) 
 			{
 				$this->session->set_flashdata('good_message', 'Hero WOD saved.');
-				redirect('welcome/index/TRUE');
+				redirect('welcome');
 			}
 			else
 			{
@@ -199,7 +199,7 @@ class Administration_functions extends MY_Controller {
 			redirect ('member/login');
 		
 		if (!$this->is_admin)
-			redirect ('welcome/index/TRUE');
+			redirect ('welcome');
 		
 		$user_name		=	$this->db->username;
 		$password		=	$this->db->password;
@@ -241,14 +241,14 @@ class Administration_functions extends MY_Controller {
 			redirect ('member/login');
 		
 		if (!$this->is_admin)
-			redirect ('welcome/index/TRUE');
+			redirect ('welcome');
 
 		$member_id			=	$this->uri->segment(3);
 		$this->load->model('Member_model');
 		$this->Member_model->erase_members_existance($member_id);
 		
 		$this->session->set_flashdata('error_message', 'Member completely removed from RX Track');
-		redirect ('welcome/index/TRUE');
+		redirect ('welcome');
 		
 	}
 	/**
@@ -262,7 +262,7 @@ class Administration_functions extends MY_Controller {
 			redirect ('member/login');
 		
 		if (!$this->is_admin)
-			redirect ('welcome/index/TRUE');
+			redirect ('welcome');
 		        
 		$this->load->model('Box_model');
 		$box_list_lookup	=	$this->Box_model->get_box_list(TRUE);
@@ -311,7 +311,7 @@ class Administration_functions extends MY_Controller {
 			redirect ('member/login');
 		
 		if (!$this->is_admin)
-			redirect ('welcome/index/TRUE');
+			redirect ('welcome');
 		
 		$bw_id			=	$this->uri->segment(3);
 		$this->load->model('Box_model');
@@ -354,7 +354,7 @@ class Administration_functions extends MY_Controller {
 			if ($ret_val['success']) 
 			{
 				$this->session->set_flashdata('good_message', 'Box WOD saved.');
-				redirect('welcome/index/TRUE');
+				redirect('welcome');
 			}
 			else
 			{
@@ -456,7 +456,7 @@ class Administration_functions extends MY_Controller {
 				$box_list	.= '<li><a href="#PAGE_ID_'.$row['box_id'].'">'.$row['box'].'</a></li>';;
 				$current_box = $row['box_id'];
 			}
-			$running_content  .= '<li><a data-ajax="false" href="'.base_url().'index.php/administration_functions/save_box_wod/'.$row['bw_id'].'">'.$row['simple_title'].'</a><span class="ui-li-count">'.$this->mysql_to_human($row['wod_date']).'</span></li>';
+			$running_content  .= '<li><a data-ajax="false" href="'.base_url().'administration_functions/save_box_wod/'.$row['bw_id'].'">'.$row['simple_title'].'</a><span class="ui-li-count">'.$this->mysql_to_human($row['wod_date']).'</span></li>';
 		}
 		
 		$running_content	.=	$page_closer;
@@ -477,7 +477,7 @@ class Administration_functions extends MY_Controller {
 			redirect ('member/login');
 		
 		if (!$this->is_admin)
-			redirect ('welcome/index/TRUE');
+			redirect ('welcome');
 		
 		$member_id	=	$this->input->post('member_id');
 		$box_id		=	 $this->input->post('box_id');
@@ -495,7 +495,7 @@ class Administration_functions extends MY_Controller {
 			$this->session->set_flashdata('bad_message', 'Problem setting member as staff');
 		
 		
-		redirect('welcome/index/TRUE');
+		redirect('welcome');
 		
 		
 	}
@@ -507,7 +507,7 @@ class Administration_functions extends MY_Controller {
 			redirect ('member/login');
 		
 		if (!$this->is_admin)
-			redirect ('welcome/index/TRUE');
+			redirect ('welcome');
 		
 		$member_id			=	$this->uri->segment(3);
 		$this->load->model('Member_model');
@@ -517,7 +517,7 @@ class Administration_functions extends MY_Controller {
 			$member_list		=	'';
 			$member_list_array	=	$this->Member_model->get_all_members();
 			foreach ($member_list_array as $row)
-				$member_list .= '<li><a data-ajax="false" class="member-link" href="'.base_url().'index.php/administration_functions/member_summary/'.$row['member_id'].'">' .trim($row['first_name'].' '.$row['last_name']) . '</a><input type="hidden" value="'.$row['member_id'].'" /></li>';
+				$member_list .= '<li><a data-ajax="false" class="member-link" href="'.base_url().'administration_functions/member_summary/'.$row['member_id'].'">' .trim($row['first_name'].' '.$row['last_name']) . '</a><input type="hidden" value="'.$row['member_id'].'" /></li>';
 
 			$data['member_list']	=	$member_list;
 		}

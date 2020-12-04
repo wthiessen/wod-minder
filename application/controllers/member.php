@@ -40,7 +40,7 @@ class Member extends MY_Controller {
 		
 		$event_id	=	$this->uri->segment(3);
 		if ($event_id == '')
-			redirect ('welcome/index/TRUE');
+			redirect ('welcome');
 		
 		$error_message = '';
 		$this->load->model('Event_model');
@@ -49,7 +49,7 @@ class Member extends MY_Controller {
 		$event	=	null;
 		$member_event = null;
 		if ($event_id == '')
-			redirect ('welcome/index/TRUE');
+			redirect ('welcome');
 		
 		$event			=	$this->Event_model->get_event($event_id);
 		$member_id		=	$this->session->userdata('member_id');
@@ -65,7 +65,7 @@ class Member extends MY_Controller {
 			{
 				$wod_name	=	$row['simple_title'];
 				$data_theme	=	'data-theme="'.($row['recorded_wod']	?	'e'	:	'c').'"';
-				$event_wod_list	.=	'<li '.$data_theme.'><a data-ajax="false" href="'.base_url().'index.php/event/save_member_event_wod/'.$row['ew_id'].'">'.$wod_name.'</a></li>';
+				$event_wod_list	.=	'<li '.$data_theme.'><a data-ajax="false" href="'.base_url().'event/save_member_event_wod/'.$row['ew_id'].'">'.$wod_name.'</a></li>';
 			}
 		}
 		
@@ -203,7 +203,7 @@ class Member extends MY_Controller {
 			redirect ('member/login');
 		
 		if (!$this->is_admin)
-			redirect ('welcome/index/TRUE');
+			redirect ('welcome');
 		
 		echo 'save member event wod';
 	}
@@ -314,7 +314,7 @@ class Member extends MY_Controller {
 		
 		$this->session->set_flashdata('good_message', 'Paleo meals sent to '.$user_email.'.<br>If you don\'t receive  in a few minutes, check your spam folder.');
 		unlink('./phpExcel/temp/'.$excel_file_name);
-		redirect('welcome/index/TRUE');
+		redirect('welcome');
 	
 	}
 	public function email_wod_data()
@@ -441,7 +441,7 @@ class Member extends MY_Controller {
 		
 		$this->session->set_flashdata('good_message', 'User WOD Data sent to '.$user_email.'.<br>If you don\'t receive  in a few minutes, check your spam folder.');
 		unlink('./phpExcel/temp/'.$excel_file_name);
-		redirect('welcome/index/TRUE');
+		redirect('welcome');
 		
 		
 		
@@ -559,7 +559,7 @@ class Member extends MY_Controller {
 		
 		$this->session->set_flashdata('good_message', 'User Max Data sent to '.$user_email.'.<br>If you don\'t receive  in a few minutes, check your spam folder.');
 		unlink('./phpExcel/temp/'.$excel_file_name);
-		redirect('welcome/index/TRUE');
+		redirect('welcome');
 		
 	}
 	public function delete_member_history()
@@ -571,7 +571,7 @@ class Member extends MY_Controller {
 			
 		
 		$this->session->set_flashdata('error_message', 'Record deleted');
-		redirect('welcome/index/TRUE');		
+		redirect('welcome');		
 	}
 	
 	/**
@@ -621,7 +621,7 @@ class Member extends MY_Controller {
 			{
 				$this->_set_user_session_data($ret_val);
 				$this->session->set_flashdata('good_message', 'User account updated.');
-				redirect('welcome/index/TRUE');
+				redirect('welcome');
 			}
 			else
 				$error_message = $ret_val['message'];
@@ -685,7 +685,7 @@ class Member extends MY_Controller {
 			$delete_link		 =	'<a href="#" data-ajax="false" data-role="button" data-icon="delete" data-iconpos="notext">'.$row['mw_id'].'</a>';
 			$benchmark_wod_history	.=	'<div class="ui-block-a '.$alt_row_class.'">'.$delete_link.'</div>';
 			$edit_route			=	$row['wod_id'] == null ? 'wod/save_member_box_wod/'.$row['bw_id'] : 'wod/save_member_benchmark_wod/mw_id/'.$row['mw_id'] ;
-			$edit_link			=	'<a href="'.base_url().'index.php/'.$edit_route.'" data-ajax="false">'.$this->mysql_to_human($row['wod_date']).'</a>';			
+			$edit_link			=	'<a href="'.base_url().''.$edit_route.'" data-ajax="false">'.$this->mysql_to_human($row['wod_date']).'</a>';			
 			$benchmark_wod_history	.=	'<div class="ui-block-b  date-block  grid-row-with-image '.$alt_row_class.'">'.$edit_link.'</div>';
 			$score = $row['score'];
 			if ($row['score_type']	===	'T')
@@ -743,7 +743,7 @@ class Member extends MY_Controller {
 			$delete_link		 =	'<a href="#" data-ajax="false" data-role="button" data-icon="delete" data-iconpos="notext">'.$row['mm_id'].'</a>';
 			$exercise_history	.=	'<div class="ui-block-a '.$alt_row_class.'">'.$delete_link.'</div>';
 			//Not ready to implement edit link yet
-			$edit_link			 =	'<a href="'.base_url().'index.php/exercise/save_member_max/mm_id/'.$row['mm_id'].'" data-ajax="false">'.$this->mysql_to_human($row['max_date']).'</a>';
+			$edit_link			 =	'<a href="'.base_url().'exercise/save_member_max/mm_id/'.$row['mm_id'].'" data-ajax="false">'.$this->mysql_to_human($row['max_date']).'</a>';
 			$exercise_history	.=	'<div class="ui-block-b date-block  grid-row-with-image '.$alt_row_class.'">'.$edit_link.'</div>';
 			$exercise_history	.=	'<div class="ui-block-c number-block grid-row-with-image '.$alt_row_class.'">'.$row['max_rep'].'</div>';
 			$exercise_history	.=	'<div class="ui-block-d number-block grid-row-with-image '.$alt_row_class.'">'.$row['max_value'].'</div>';
@@ -882,7 +882,7 @@ class Member extends MY_Controller {
 				$this->_send_user_welcome_email($ret_val);
 				$this->session->set_flashdata('good_message', 'User account created.  You are logged in.');
 				$this->session->set_flashdata('show_add2home_popup', TRUE);
-				redirect('welcome/index/TRUE');
+				redirect('welcome');
 			} 
 			else
 				$error_message = $ret_val['message'];

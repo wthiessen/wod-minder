@@ -2,7 +2,7 @@
 $this->load->helper('form'); ?>
 <div data-role="page">
 	<div data-role="header">
-		<a href="<?php echo base_url(); ?>index.php/welcome/index/TRUE" data-ajax ="false" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+		<a href="<?php echo base_url(); ?>welcome" data-ajax ="false" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
 		<h1><?php echo $title; ?></h1>
 	</div>
 	<div data-role="fieldcontain" class="ui-hide-label">	
@@ -63,7 +63,7 @@ $this->load->helper('form'); ?>
 
 			//Buttons
 			echo	$field_contain_div.
-						anchor('welcome/index/TRUE', 'Cancel', array(	'id'=>'_cancel',
+						anchor('welcome', 'Cancel', array(	'id'=>'_cancel',
 																		'data-ajax'=>'false',
 																		'data-role'=>'button',
 																		'data-inline'=>'true')).

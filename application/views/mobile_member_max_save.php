@@ -64,7 +64,7 @@
 				echo form_input($max_value);				
 			}
 			
-			echo anchor('welcome/index/TRUE', 'Cancel', array(	'data-ajax'	=>	'false',
+			echo anchor('welcome', 'Cancel', array(	'data-ajax'	=>	'false',
 													'data-role'=>'button',
 													'data-inline'=>'true'));
 			echo form_submit($submit);

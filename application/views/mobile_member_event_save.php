@@ -1,6 +1,6 @@
 <div data-role="page" id="MemberEventSavePage">
 	<div data-role="header">
-		<a href="<?php echo base_url(); ?>index.php/welcome/index/TRUE" data-ajax ="false" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+		<a href="<?php echo base_url(); ?>welcome" data-ajax ="false" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
 		<h1><?php echo $event_name; ?></h1>
 	</div>	
 	<div data-role="fieldcontain" class="ui-hide-label">	

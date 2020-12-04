@@ -48,7 +48,7 @@
 	</head>
 <body>
 	<div data-role="header" data-theme="b">
-		<a href="<?php echo base_url(); ?>index.php/welcome/index/TRUE" data-ajax ="false" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+		<a href="<?php echo base_url(); ?>welcome" data-ajax ="false" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
 		<h1><?php echo $title; ?></h1>
 	</div>
 	<?php if (!$show_report): ?>

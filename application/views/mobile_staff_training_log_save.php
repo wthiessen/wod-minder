@@ -43,7 +43,7 @@ $this->load->helper('form'); ?>
 
 			//Buttons
 			echo	$field_contain_div.
-						anchor('welcome/index/TRUE', 'Cancel', array(	'data-ajax'=>'false',
+						anchor('welcome', 'Cancel', array(	'data-ajax'=>'false',
 																'data-role'=>'button',
 																'data-inline'=>'true')).
 						form_button($submit).

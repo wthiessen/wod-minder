@@ -1,7 +1,7 @@
 <?php $this->load->helper('form'); ?>
 <div data-role="page">
 	<div data-role="header">
-		<a href="<?php echo base_url(); ?>index.php/welcome/index/TRUE" data-ajax ="false" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+		<a href="<?php echo base_url(); ?>welcome" data-ajax ="false" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
 		<h1><?php echo $title; ?></h1>
 	</div>
 	<div class="ui-grid-b">
@@ -11,7 +11,7 @@
 		<?php echo $staff_training_log_history;?>
 	</div><!-- /grid-c -->
 	<div>
-	<?php	echo anchor('welcome/index/TRUE', 'Cancel', array(	'data-ajax'=>'false',
+	<?php	echo anchor('welcome', 'Cancel', array(	'data-ajax'=>'false',
 															'data-role'=>'button',
 															'data-inline'=>'true'));
 	?>

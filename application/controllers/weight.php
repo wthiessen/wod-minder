@@ -132,7 +132,7 @@ class Weight extends MY_Controller {
 			if ($ret_val['success']) 
 			{				
 				$this->session->set_flashdata('good_message', 'Weight saved.');
-				redirect('welcome/index/TRUE');
+				redirect('welcome');
 			}
 			else
 				$error_message = $ret_val['message'];
@@ -167,7 +167,7 @@ class Weight extends MY_Controller {
 		if (!$weight_data)
 		{
 			$this->session->set_flashdata('error_message', 'Record not found');
-			redirect('welcome/index/TRUE');
+			redirect('welcome');
 		}
 		
 		if ($weight_data['image_name']	!=	'')
@@ -185,7 +185,7 @@ class Weight extends MY_Controller {
 		$ret_val = $this->Weight_model->delete_weight($delete_id);
 		
 		$this->session->set_flashdata('error_message', 'Record deleted');
-		redirect('welcome/index/TRUE');
+		redirect('welcome');
 		
 	}
 	public function get_user_weight_history()
@@ -217,7 +217,7 @@ class Weight extends MY_Controller {
 		
 			$delete_link	 =	'<a href="#" data-ajax="false" data-role="button" data-icon="delete" data-iconpos="notext" >'.$row['mwl_id'].'</a>';
 			$weight_history	.=	'<div class="ui-block-a '.$alt_row_class.'">'.$delete_link.'</div>';
-			$edit_link		 =	'<a href="'.base_url().'index.php/weight/save_member_weight/'.$row['mwl_id'].'" data-ajax="false">'.$row['weight_date'].'</a>';
+			$edit_link		 =	'<a href="'.base_url().'weight/save_member_weight/'.$row['mwl_id'].'" data-ajax="false">'.$row['weight_date'].'</a>';
 			$weight_history	.=	'<div class="ui-block-b  date-block  grid-row-with-image '.$alt_row_class.'">'.$edit_link.'</div>';
 			$weight_history	.=	'<div class="ui-block-c number-block grid-row-with-image '.$alt_row_class.'">'.$row['weight'].'</div>';
 			

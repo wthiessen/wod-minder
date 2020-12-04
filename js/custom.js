@@ -5,7 +5,7 @@ function onSuccess(position) {
         var result_count = $('#_resultCount').val();
 
         $.ajax({
-            url: base_url() + 'index.php/find_a_fit/ajax_get_nearest_boxes_with_options/browser/current_position/' + 
+            url: base_url() + 'find_a_fit/ajax_get_nearest_boxes_with_options/browser/current_position/' + 
                         result_count + '/' + 
                         position.coords.latitude + '/' + 
                         position.coords.longitude,
@@ -99,7 +99,7 @@ function search_fits() {
     element.innerHTML = 'Searching nearest facilities based on address given...';
 
     $.ajax({
-        url: base_url() + 'index.php/find_a_fit/ajax_get_nearest_boxes_with_options/browser/address_field/' + 
+        url: base_url() + 'find_a_fit/ajax_get_nearest_boxes_with_options/browser/address_field/' + 
                     result_count + '/' + 
                     encodedAddress,
         cache: false,
@@ -147,7 +147,7 @@ function submit_feedback() {
         return;
 
     $.ajax({
-        url: base_url() + 'index.php/find_a_fit/ajax_submit_feedback/' + 
+        url: base_url() + 'find_a_fit/ajax_submit_feedback/' + 
                     encodeURIComponent(user_feedback) + '/' + 
                     'Web Browser' + '/' + 
                     '' + '/' + 

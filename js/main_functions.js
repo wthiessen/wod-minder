@@ -344,7 +344,7 @@ function mobile_user_weight_history_doc_ready()
 	{
 		var answer = confirm('Delete record?');
 		if (answer)
-				window.location.href = base_url() + 'index.php/weight/delete_member_weight/' + $(this).attr('title');
+				window.location.href = base_url() + 'weight/delete_member_weight/' + $(this).attr('title');
 		else
 			return false;
 		
@@ -358,7 +358,7 @@ function mobile_staff_training_log_history_doc_ready()
 	{
 		var answer = confirm('Delete record?');
 		if (answer)
-				window.location.href = base_url() + 'index.php/staff/delete_staff_training_log/' + $(this).attr('title');
+				window.location.href = base_url() + 'staff/delete_staff_training_log/' + $(this).attr('title');
 		else
 			return false;
 		
@@ -372,7 +372,7 @@ function mobile_max_history_doc_ready()
 	{
 		var answer = confirm('Delete record?');
 		if (answer)
-				window.location.href = base_url() + 'index.php/member/delete_member_history/' + $(this).attr('title');
+				window.location.href = base_url() + 'member/delete_member_history/' + $(this).attr('title');
 		else
 			return false;
 		
@@ -385,7 +385,7 @@ function mobile_user_paleo_history_doc_ready()
 	{
 		var answer = confirm('Delete record?');
 		if (answer)
-				window.location.href = base_url() + 'index.php/paleo/ajax_dmpm/' + $(this).attr('title');
+				window.location.href = base_url() + 'paleo/ajax_dmpm/' + $(this).attr('title');
 		else
 			return false;
 		
@@ -430,7 +430,7 @@ function welcome_page_init()
 		$('#RecordNewMax').live('pageinit',function(){
 			
 			$.ajax({
-				url: base_url() + 'index.php/welcome/ajax_audit/welcome/record_new_max',
+				url: base_url() + 'welcome/ajax_audit/welcome/record_new_max',
 				cache: false
 			});
 			
@@ -449,7 +449,7 @@ function welcome_page_init()
 		$('#BarbellCalculator').live('pageinit',function(){
 			
 			$.ajax({
-				url: base_url() + 'index.php/welcome/ajax_audit/welcome/using_barbell_calc',
+				url: base_url() + 'welcome/ajax_audit/welcome/using_barbell_calc',
 				cache: false
 			});
 			
@@ -462,7 +462,7 @@ function welcome_page_init()
 				alert('ERROR!\r\nSession Storage disabled.\r\nAre you using Safari in "Private" mode?\r\nIf so, that\'s your problem.\r\n' );//+ e);
 				
 				$.ajax({
-					url: base_url() + 'index.php/welcome/ajax_audit/welcome/no_session_storage',
+					url: base_url() + 'welcome/ajax_audit/welcome/no_session_storage',
 					cache: false
 				});
 			}
@@ -513,7 +513,7 @@ function welcome_page_init()
 	$('#MaxSnapshot').live('pageinit',function(event){
 		
 		$.ajax({
-			url: base_url() + 'index.php/welcome/ajax_audit/welcome/MaxSnapshot',
+			url: base_url() + 'welcome/ajax_audit/welcome/MaxSnapshot',
 			cache: false
 		});
 
@@ -560,7 +560,7 @@ function welcome_page_init()
 		$('#MyBoxHistory').live('pageinit',function(){
 			
 		$.ajax({
-			url: base_url() + 'index.php/welcome/ajax_audit/welcome/MyBoxHistory',
+			url: base_url() + 'welcome/ajax_audit/welcome/MyBoxHistory',
 			cache: false
 		});
 			
@@ -568,7 +568,7 @@ function welcome_page_init()
 				{
 					var answer = confirm('Delete record?');
 					if (answer)
-							window.location.href = base_url() + 'index.php/wod/delete_member_wod/' + $(this).attr('title');
+							window.location.href = base_url() + 'wod/delete_member_wod/' + $(this).attr('title');
 					else
 						return false;
 
@@ -578,7 +578,7 @@ function welcome_page_init()
 		$('#CustomWODHistory').live('pageinit',function(){
 			
 			$.ajax({
-				url: base_url() + 'index.php/welcome/ajax_audit/welcome/CustomWodHistory',
+				url: base_url() + 'welcome/ajax_audit/welcome/CustomWodHistory',
 				cache: false
 			});
 			
@@ -586,7 +586,7 @@ function welcome_page_init()
 				{
 					var answer = confirm('Delete record?');
 					if (answer)
-							window.location.href = base_url() + 'index.php/wod/delete_member_wod/' + $(this).attr('title');
+							window.location.href = base_url() + 'wod/delete_member_wod/' + $(this).attr('title');
 					else
 						return false;
 
@@ -614,7 +614,7 @@ function find_a_fit_doc_ready()
 		{
 			alert('This browser does not support geolocation.');
 			$.ajax({
-					url: base_url() + 'index.php/welcome/ajax_audit/find_a_fit/unsupported_browser',
+					url: base_url() + 'welcome/ajax_audit/find_a_fit/unsupported_browser',
 					cache: false
 			});
 		}
@@ -1034,7 +1034,7 @@ function mobile_benchmark_wod_history_doc_ready()
 		{
 			var answer = confirm('Delete record?');
 			if (answer)
-					window.location.href = base_url() + 'index.php/wod/delete_member_wod/' + $(this).attr('title');
+					window.location.href = base_url() + 'wod/delete_member_wod/' + $(this).attr('title');
 			else
 				return false;
 

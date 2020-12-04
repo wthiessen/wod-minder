@@ -148,7 +148,7 @@ class Welcome extends MY_Controller {
     //Just a public page to show the site's stats
     public function site_counts() {
         if (!$this->is_admin)
-            redirect('welcome/index/TRUE');
+            redirect('welcome');
 
         $this->load->model('Box_model');
 
@@ -248,7 +248,7 @@ class Welcome extends MY_Controller {
    //      FacebookSession::setDefaultApplication($appId, $secret);
 
    //      // login helper with redirect_uri
-   //      $helper = new FacebookRedirectLoginHelper('http://app.wod-minder.com/index.php/staff/save_box_wod_for_staff');
+   //      $helper = new FacebookRedirectLoginHelper('http://app.wod-minder.com/staff/save_box_wod_for_staff');
 
    //      return $helper->getLoginUrl();
    //  }
@@ -461,7 +461,7 @@ class Welcome extends MY_Controller {
                 $max_history .= str_replace('REPLACE_ME', $max_types[$row['max_type']], $divider_row);
                 $current_max_type = $row['max_type'];
             }
-            $max_history .= '<li><a data-ajax="false" href="' . base_url() . 'index.php/member/exercise_history/' . $row['exercise_id'] . '">' . $row['title'] . '</a><span class="ui-li-count">' . $row['lift_count'] . '</span></li>';
+            $max_history .= '<li><a data-ajax="false" href="' . base_url() . 'member/exercise_history/' . $row['exercise_id'] . '">' . $row['title'] . '</a><span class="ui-li-count">' . $row['lift_count'] . '</span></li>';
         }
 
         return $max_history;
@@ -593,7 +593,7 @@ class Welcome extends MY_Controller {
                 $exercise_list .= str_replace('REPLACE_ME', $max_types[$row['max_type']], $divider_row);
                 $current_max_type = $row['max_type'];
             }
-            $exercise_list .= '<li ' . $data_theme . ' data-filtertext="' . $max_types[$row['max_type']] . ' ' . $row['title'] . '"><a data-ajax="false" href="' . base_url() . 'index.php/exercise/save_member_max/exercise_id/' . $row['exercise_id'] . '">' . $row['title'] . '</a></li>';
+            $exercise_list .= '<li ' . $data_theme . ' data-filtertext="' . $max_types[$row['max_type']] . ' ' . $row['title'] . '"><a data-ajax="false" href="' . base_url() . 'exercise/save_member_max/exercise_id/' . $row['exercise_id'] . '">' . $row['title'] . '</a></li>';
         }
 
         return $exercise_list;
@@ -608,7 +608,7 @@ class Welcome extends MY_Controller {
         foreach ($box_wod_array as $row) {
             $wod_name = ($row['tier_name'] == '' ? '' : $row['tier_name'] . ':  ') . $row['simple_title'];
             $data_theme = 'data-theme="' . ($row['recorded_wod'] ? 'e' : 'c') . '"';
-            $box_wod_list .= '<li ' . $data_theme . '><a data-ajax="false" href="' . base_url() . 'index.php/wod/save_member_box_wod/' . $row['bw_id'] . '">' . $wod_name . '</a><span class="ui-li-count">' . $this->mysql_to_human($row['wod_date']) . '</span></li>';
+            $box_wod_list .= '<li ' . $data_theme . '><a data-ajax="false" href="' . base_url() . 'wod/save_member_box_wod/' . $row['bw_id'] . '">' . $wod_name . '</a><span class="ui-li-count">' . $this->mysql_to_human($row['wod_date']) . '</span></li>';
         }
         return $box_wod_list;
     }
@@ -630,7 +630,7 @@ class Welcome extends MY_Controller {
                 $benchmark_wod_history .= str_replace('REPLACE_ME', $benchmark_wod_categorys[$row['category']], $divider_row);
                 $current_benchmark_wod_category = $row['category'];
             }
-            $benchmark_wod_history .= '<li><a data-ajax="false" href="' . base_url() . 'index.php/member/benchmark_wod_history/' . $row['wod_id'] . '">' . $row['title'] . '</a><span class="ui-li-count">' . $row['wod_count'] . '</span></li>';
+            $benchmark_wod_history .= '<li><a data-ajax="false" href="' . base_url() . 'member/benchmark_wod_history/' . $row['wod_id'] . '">' . $row['title'] . '</a><span class="ui-li-count">' . $row['wod_count'] . '</span></li>';
         }
 
         return $benchmark_wod_history;
@@ -652,7 +652,7 @@ class Welcome extends MY_Controller {
 
             $delete_link = '<a href="#" data-ajax="false" data-role="button" data-icon="delete" data-iconpos="notext" >' . $row['mw_id'] . '</a>';
             $box_wod_history .= '<div class="ui-block-a ' . $alt_row_class . '">' . $delete_link . '</div>';
-            $edit_link = '<a href="' . base_url() . 'index.php/wod/save_member_box_wod/' . $row['bw_id'] . '" data-ajax="false">' . $this->mysql_to_human($row['wod_date']) . '</a>';
+            $edit_link = '<a href="' . base_url() . 'wod/save_member_box_wod/' . $row['bw_id'] . '" data-ajax="false">' . $this->mysql_to_human($row['wod_date']) . '</a>';
             $box_wod_history .= '<div class="ui-block-b  date-block  grid-row-with-image ' . $alt_row_class . '">' . $edit_link . '</div>';
             $box_wod_history .= '<div class="ui-block-c number-block grid-row-with-image ' . $alt_row_class . '">' . $row['simple_title'] . '</div>';
             $box_wod_history .= '<div class="ui-block-d number-block grid-row-with-image ' . $alt_row_class . '">' . $row['score'] . '</div>';
@@ -677,7 +677,7 @@ class Welcome extends MY_Controller {
 
             $delete_link = '<a href="#" data-ajax="false" data-role="button" data-icon="delete" data-iconpos="notext" >' . $row['mw_id'] . '</a>';
             $custom_wod_history .= '<div class="ui-block-a ' . $alt_row_class . '">' . $delete_link . '</div>';
-            $edit_link = '<a href="' . base_url() . 'index.php/wod/save_member_custom_wod/' . $row['mw_id'] . '" data-ajax="false">' . $this->mysql_to_human($row['wod_date']) . '</a>';
+            $edit_link = '<a href="' . base_url() . 'wod/save_member_custom_wod/' . $row['mw_id'] . '" data-ajax="false">' . $this->mysql_to_human($row['wod_date']) . '</a>';
             $custom_wod_history .= '<div class="ui-block-b  date-block  grid-row-with-image ' . $alt_row_class . '">' . $edit_link . '</div>';
             $custom_wod_history .= '<div class="ui-block-c number-block grid-row-with-image ' . $alt_row_class . '">' . $row['custom_title'] . '</div>';
             $custom_wod_history .= '<div class="ui-block-d number-block grid-row-with-image ' . $alt_row_class . '">' . $row['score'] . '</div>';
@@ -695,7 +695,7 @@ class Welcome extends MY_Controller {
         $benchmark_wod_array = $this->Wod_model->get_benchmark_wod();
         $wod_list = '';
         foreach ($benchmark_wod_array as $row)
-            $wod_list .= '<li><a data-ajax="false" href="' . base_url() . 'index.php/wod/save_member_benchmark_wod/wod_id/' . $row['wod_id'] . '">' . $row['wod_name'] . '</a></li>';
+            $wod_list .= '<li><a data-ajax="false" href="' . base_url() . 'wod/save_member_benchmark_wod/wod_id/' . $row['wod_id'] . '">' . $row['wod_name'] . '</a></li>';
 
         return $wod_list;
     }

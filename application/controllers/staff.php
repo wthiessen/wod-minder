@@ -26,7 +26,7 @@ class Staff extends MY_Controller {
      */
     public function index() {
 
-        redirect('welcome/index/TRUE');
+        redirect('welcome');
     }
 
     public function save_staff_training_log() {
@@ -41,7 +41,7 @@ class Staff extends MY_Controller {
         $this->load->model('Box_model');
         $box_id = $this->Box_model->is_member_staff();
         if (!$box_id)
-            redirect('welcome/index/TRUE'); //user is not a staff member
+            redirect('welcome'); //user is not a staff member
 
         $id_value = $this->uri->segment(ID_VALUE);
         $this->load->model('Staff_model');
@@ -84,7 +84,7 @@ class Staff extends MY_Controller {
             $ret_val = $this->Staff_model->save_staff_training_log($data);
             if ($ret_val['success']) {
                 $this->session->set_flashdata('good_message', 'Training Time Logged.');
-                redirect('welcome/index/TRUE');
+                redirect('welcome');
             } else
                 $error_message = $ret_val['message'];
         }
@@ -132,7 +132,7 @@ class Staff extends MY_Controller {
 
             $delete_link = '<a href="#" data-ajax="false" data-role="button" data-icon="delete" data-iconpos="notext" >' . $row['bstl_id'] . '</a>';
             $staff_training_log_history .= '<div class="ui-block-a ' . $alt_row_class . '">' . $delete_link . '</div>';
-            $edit_link = '<a href="' . base_url() . 'index.php/staff/save_staff_training_log/' . $row['bstl_id'] . '" data-ajax="false">' . $row['training_date'] . '</a>';
+            $edit_link = '<a href="' . base_url() . 'staff/save_staff_training_log/' . $row['bstl_id'] . '" data-ajax="false">' . $row['training_date'] . '</a>';
             $staff_training_log_history .= '<div class="ui-block-b  date-block  grid-row-with-image ' . $alt_row_class . '">' . $edit_link . '</div>';
             $staff_training_log_history .= '<div class="ui-block-c number-block grid-row-with-image ' . $alt_row_class . '">' . $row['class_time_description'] . '</div>';
 
@@ -162,13 +162,13 @@ class Staff extends MY_Controller {
         $staff_training_log_history = $this->Staff_model->get_staff_training_log_history($delete_id);
         if (!$staff_training_log_history) {
             $this->session->set_flashdata('error_message', 'Record not found');
-            redirect('welcome/index/TRUE');
+            redirect('welcome');
         }
 
         $ret_val = $this->Staff_model->delete_training_log($delete_id);
 
         $this->session->set_flashdata('error_message', 'Record deleted');
-        redirect('welcome/index/TRUE');
+        redirect('welcome');
     }
 
     public function save_box_wod_for_staff() {
@@ -181,7 +181,7 @@ class Staff extends MY_Controller {
         $box_id = $this->Box_model->is_member_staff();
         $social_media_data = $this->Box_model->get_box_social_media_data($box_id);
         if (!$box_id)
-            redirect('welcome/index/TRUE'); //user is not a staff member
+            redirect('welcome'); //user is not a staff member
 
         $bw_id = $this->uri->segment(3);
 
@@ -325,7 +325,7 @@ class Staff extends MY_Controller {
                 }
 
                 $this->session->set_flashdata('good_message', 'Box WOD saved.');
-                redirect('welcome/index/TRUE');
+                redirect('welcome');
             } else
                 $error_message = $ret_val['message'];
         }
@@ -391,7 +391,7 @@ class Staff extends MY_Controller {
             if (!$social_media_data) {
                 $error_message = 'No box data found for your box; contact ray023@gmail.com';
                 $this->session->set_flashdata('error_message', $error_message);
-                redirect('welcome/index/TRUE');
+                redirect('welcome');
             }
 
             if ($social_media_data['sm_package']) {
@@ -417,7 +417,7 @@ class Staff extends MY_Controller {
         $this->load->model('Box_model');
         $box_id = $this->Box_model->is_member_staff();
         if (!$box_id)
-            redirect('welcome/index/TRUE'); //user is not a staff member
+            redirect('welcome'); //user is not a staff member
 
 
         $data['title'] = 'Edit Box WOD';
@@ -431,7 +431,7 @@ class Staff extends MY_Controller {
 
         foreach ($box_wod_list_for_staff_array as $row) {
             $wod_name = ($row['tier_name'] == '' ? '' : $row['tier_name'] . ':  ') . $row['simple_title'];
-            $box_wod_list .= '<li><a data-ajax="false" href="' . base_url() . 'index.php/staff/save_box_wod_for_staff/' . $row['bw_id'] . '">' . $wod_name . '</a><span class="ui-li-count">' . $this->mysql_to_human($row['wod_date']) . '</span></li>';
+            $box_wod_list .= '<li><a data-ajax="false" href="' . base_url() . 'staff/save_box_wod_for_staff/' . $row['bw_id'] . '">' . $wod_name . '</a><span class="ui-li-count">' . $this->mysql_to_human($row['wod_date']) . '</span></li>';
         }
 
         $data['box_wod_list'] = $box_wod_list;
@@ -459,7 +459,7 @@ class Staff extends MY_Controller {
         //END AUDIT
 
         if (!$member_box_id)
-            redirect('welcome/index/TRUE');
+            redirect('welcome');
 
         $data['member_exercises'] = $this->_get_member_exercises($member_box_id);
         $data['member_max_details'] = $this->_get_member_max_details($member_box_id);
@@ -487,7 +487,7 @@ class Staff extends MY_Controller {
         //END AUDIT
 
         if (!$member_box_id)
-            redirect('welcome/index/TRUE');
+            redirect('welcome');
 
         $data['daily_box_wods'] = $this->_get_daily_box_wods($member_box_id);
         $data['daily_wod_details'] = $this->_get_daily_box_wod_details($member_box_id);
@@ -517,7 +517,7 @@ class Staff extends MY_Controller {
         //END AUDIT
 
         if (!$member_box_id)
-            redirect('welcome/index/TRUE');
+            redirect('welcome');
 
         $leader_board_array = $this->_get_leader_board($member_box_id);
 

@@ -1,7 +1,7 @@
 <?php $this->load->helper('form'); ?>
 <div data-role="page" id="Main">
 	<div data-role="header">
-		<a href="<?php echo base_url(); ?>index.php/welcome/index/TRUE" data-ajax ="false" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+		<a href="<?php echo base_url(); ?>welcome" data-ajax ="false" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
 		<h1><?php echo $title; ?></h1>
 	</div>
 	<div data-role="fieldcontain" class="ui-hide-label">	

@@ -31,7 +31,7 @@ class Wod extends MY_Controller {
 			$box_array	= $this->Box_model->get_box_info($box_id);
 			$box_name	=	$box_array->box_name;
 			$this->session->set_flashdata('error_message', $box_name.' has not saved a WOD for today ('.date( 'm/d/Y').').');
-			redirect('welcome/index/TRUE');
+			redirect('welcome');
 		}
 		else if (count($wod_list) == 1)
 		{
@@ -45,7 +45,7 @@ class Wod extends MY_Controller {
 			$data_theme = $row['user_saved'] ? 'data-theme="e"' : '';
 			
 			//Set main page grid
-			$wod_select_html .= '<li '.$data_theme.'><a href="'.base_url().'index.php/wod/save_member_box_wod/'.$row['bw_id'].'" data-ajax="false">' . $row['tier_and_wod'] . '</a></li>';
+			$wod_select_html .= '<li '.$data_theme.'><a href="'.base_url().'wod/save_member_box_wod/'.$row['bw_id'].'" data-ajax="false">' . $row['tier_and_wod'] . '</a></li>';
 		}
 		
 		$data['wod_select_html']	=	$wod_select_html;
@@ -150,7 +150,7 @@ class Wod extends MY_Controller {
 				
 				$description	=	'<h3>Description:</h3><br>'.$row['description'].'<br>';
 				$note			=	$row['note'] === '' ? '' : '<h3>Note:</h3>'.$row['note'].'<br>';
-				$record_button	=	anchor(base_url().'index.php/wod/save_member_benchmark_wod/wod_id/'.$row['wod_id'], 'Record '.$row['wod'], array(	'data-ajax'=>'false',
+				$record_button	=	anchor(base_url().'wod/save_member_benchmark_wod/wod_id/'.$row['wod_id'], 'Record '.$row['wod'], array(	'data-ajax'=>'false',
 																																		'data-role'=>'button'));
 
 
@@ -164,7 +164,7 @@ class Wod extends MY_Controller {
 			
 		}
 		
-		$record_button	=	anchor(base_url().'index.php/wod/save_member_benchmark_wod/wod_id/'.$row['wod_id'], 'Record '.$row['wod'], array(	'data-ajax'=>'false',
+		$record_button	=	anchor(base_url().'wod/save_member_benchmark_wod/wod_id/'.$row['wod_id'], 'Record '.$row['wod'], array(	'data-ajax'=>'false',
 																																		'data-role'=>'button'));
 		$wod_div_html	=	"<div data-role=\"collapsible\" data-theme=\"".$data_theme."\" class=\"wod-div ".$movement_classes."\" data-wod_id=\"".$wod_id."\">".
 										$wod.
@@ -276,7 +276,7 @@ class Wod extends MY_Controller {
 					}
 					//
 					//Set main page grid
-					$wod_list .= '<li data-theme="'.$data_theme.'"><a href="'.base_url().'index.php/wod/'.$link_extra.'"  data-ajax="false">' . $row['simple_title'] . '</a><span class="ui-li-count">' . $this->mysql_to_human($row['wod_date']).'</span></li>';
+					$wod_list .= '<li data-theme="'.$data_theme.'"><a href="'.base_url().'wod/'.$link_extra.'"  data-ajax="false">' . $row['simple_title'] . '</a><span class="ui-li-count">' . $this->mysql_to_human($row['wod_date']).'</span></li>';
 				}
 				$wod_list .= '</ul>';
 				
@@ -606,7 +606,7 @@ class Wod extends MY_Controller {
 			if ($ret_val['success']) 
 			{
 				$this->session->set_flashdata('good_message', 'Wod saved.');
-				redirect('welcome/index/TRUE');
+				redirect('welcome');
 			}
 			else
 			{
@@ -742,7 +742,7 @@ class Wod extends MY_Controller {
 			if ($ret_val['success']) 
 			{
 				$this->session->set_flashdata('good_message', 'Hero WOD saved.');
-				redirect('welcome/index/TRUE');
+				redirect('welcome');
 			}
 			else
 				$error_message = $ret_val['message'];
@@ -814,7 +814,7 @@ class Wod extends MY_Controller {
 			if ($ret_val['success']) 
 			{
 				$this->session->set_flashdata('good_message', 'Custom WOD saved.');
-				redirect('welcome/index/TRUE');
+				redirect('welcome');
 			}
 			else
 				$error_message = $ret_val['message'];
@@ -844,7 +844,7 @@ class Wod extends MY_Controller {
 		$ret_val = $this->Wod_model->delete_member_wod($delete_id);
 		
 		$this->session->set_flashdata('error_message', 'Record deleted');
-		redirect('welcome/index/TRUE');
+		redirect('welcome');
 		
 	}
 	

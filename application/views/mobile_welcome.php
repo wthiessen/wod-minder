@@ -248,12 +248,12 @@ echo anchor('#Main', 'Return', array('data-direction' => 'reverse',
 
     <div data-role="content">	
         <p>
-<?php echo anchor(base_url() . 'index.php/weight/save_member_weight/', 'Record New Weight', array('data-ajax' => 'false',
+<?php echo anchor(base_url() . 'weight/save_member_weight/', 'Record New Weight', array('data-ajax' => 'false',
     'data-role' => 'button'));
 ?>		
         </p>
         <p>
-<?php echo anchor(base_url() . 'index.php/weight/get_user_weight_history/', 'Weight History', array('data-ajax' => 'false',
+<?php echo anchor(base_url() . 'weight/get_user_weight_history/', 'Weight History', array('data-ajax' => 'false',
     'data-role' => 'button'));
 ?>	
         </p>
@@ -316,7 +316,7 @@ echo anchor('#Main', 'Return', array('data-direction' => 'reverse',
 <?php echo anchor('#BenchmarkWodMenu', 'Hero WODs', array('data-role' => 'button')); ?>
             </p>
             <p>
-<?php echo anchor(base_url() . 'index.php/wod/save_member_custom_wod/', 'Custom WOD', array('data-ajax' => 'false',
+<?php echo anchor(base_url() . 'wod/save_member_custom_wod/', 'Custom WOD', array('data-ajax' => 'false',
     'data-role' => 'button'));
 ?>	
             </p>
@@ -335,7 +335,7 @@ echo anchor('#Main', 'Return', array('data-direction' => 'reverse',
     <div data-role="content">		
         <div class="content-primary">
 <?php echo anchor('#AllBenchmarkWoDs', 'Pick by WoD Name', array('data-role' => 'button')); ?>
-<?php echo anchor(base_url() . 'index.php/wod/wod_wizard/', 'Pick by Movement', array('data-ajax' => 'false',
+<?php echo anchor(base_url() . 'wod/wod_wizard/', 'Pick by Movement', array('data-ajax' => 'false',
     'data-role' => 'button'));
 ?>	
         </div><!--/content-primary -->		

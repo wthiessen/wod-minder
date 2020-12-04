@@ -5,7 +5,7 @@ function update_button_html()
 {
 	boxId = $('#_boxId').val();
 	$.ajax({
-		url: base_url() + 'index.php/kiosk/get_wod_buttons/' + boxId,
+		url: base_url() + 'kiosk/get_wod_buttons/' + boxId,
 		cache: false
 	})
 		.done(function( html ) {
@@ -62,7 +62,7 @@ function update_wod_html()
 {
 	boxId = $('#_boxId').val();
 	$.ajax({
-		url: base_url() + 'index.php/kiosk/get_wod_results/' + boxId,
+		url: base_url() + 'kiosk/get_wod_results/' + boxId,
 		cache: false
 	})
 		.done(function( html ) {
@@ -80,7 +80,7 @@ function check_dates()
 	var update_wod_results = false;
 	boxId = $('#_boxId').val();
 	$.ajax({
-		url: base_url() + 'index.php/kiosk/check_dates/' + boxId,
+		url: base_url() + 'kiosk/check_dates/' + boxId,
 		cache: false
 	})
 		.done(function( date_values ) {

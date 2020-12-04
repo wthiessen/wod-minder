@@ -2,7 +2,7 @@
 $this->load->helper('form'); ?>
 <div data-role="page">
 	<div data-role="header">
-		<a href="<?php echo base_url().'index.php/member/save_event/'.$event_id; ?>" data-ajax ="false" data-icon="back" data-iconpos="notext" data-direction="reverse">Back</a>
+		<a href="<?php echo base_url().'member/save_event/'.$event_id; ?>" data-ajax ="false" data-icon="back" data-iconpos="notext" data-direction="reverse">Back</a>
 		<h1><?php echo $title; ?></h1>
 	</div>
 	<div data-role="fieldcontain">	
@@ -78,7 +78,7 @@ $this->load->helper('form'); ?>
 					
 			//Buttons
 			echo	$field_contain_div.
-						anchor('welcome/index/TRUE', 'Cancel', array(	'data-ajax'=>'false',
+						anchor('welcome', 'Cancel', array(	'data-ajax'=>'false',
 																'data-role'=>'button',
 																'data-inline'=>'true')).
 						form_button($submit).

@@ -238,7 +238,7 @@ class Report extends MY_Controller {
 		{
 			$max_data_html .= "<p>Relative Strength requires the following:</p>".
 								"<ul>".
-								"<li><a data-ajax=\"false\" href=\"".base_url()."index.php/weight/save_member_weight/  \">A Weight Journal record</a></li>".
+								"<li><a data-ajax=\"false\" href=\"".base_url()."weight/save_member_weight/  \">A Weight Journal record</a></li>".
 								"<li>A Weighted Max (e.g. Power Clean, DeadLift, Bench Press, etc.)</li>".
 								"</ul>";
 		}

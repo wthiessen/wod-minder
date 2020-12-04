@@ -1,6 +1,6 @@
 <div data-role="page" id="Main">
 	<div data-role="header">
-		<a href="<?php echo base_url(); ?>index.php/welcome/index/TRUE" data-ajax ="false" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+		<a href="<?php echo base_url(); ?>welcome" data-ajax ="false" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
 		<h1>Pick Box</h1>
 	</div><!-- /header -->
 	<div data-role="content">		

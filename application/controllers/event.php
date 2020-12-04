@@ -26,7 +26,7 @@ class Event extends MY_Controller {
 	 */
 	public function index()
 	{
-		redirect ('welcome/index/TRUE');
+		redirect ('welcome');
 	}
 	
 	public function save_member_event_wod()
@@ -37,7 +37,7 @@ class Event extends MY_Controller {
 
 		$ew_id			=	$this->uri->segment(3);
 		if ($ew_id === '')
-			redirect ('welcome/index/TRUE');
+			redirect ('welcome');
 
 		$error_message = '';
 		$this->load->model('Event_model');
@@ -131,7 +131,7 @@ class Event extends MY_Controller {
 			redirect ('member/login');
 		
 		if (!$this->is_admin)
-			redirect ('welcome/index/TRUE');
+			redirect ('welcome');
 		
         $error_message = '';
 		$this->load->model('Event_model');
@@ -201,7 +201,7 @@ class Event extends MY_Controller {
 			if ($ret_val['success']) 
 			{
 				$this->session->set_flashdata('good_message', 'Event saved.');
-				redirect('welcome/index/TRUE');
+				redirect('welcome');
 			}
 			else
 				$error_message = $ret_val['message'];
@@ -235,7 +235,7 @@ class Event extends MY_Controller {
 			redirect ('member/login');
 		
 		if (!$this->is_admin)
-			redirect ('welcome/index/TRUE');
+			redirect ('welcome');
 		
         $error_message = '';
 		$this->load->model('Event_model');
@@ -276,7 +276,7 @@ class Event extends MY_Controller {
 			if ($ret_val['success']) 
 			{
 				$this->session->set_flashdata('good_message', 'Event WOD saved.');
-				redirect('welcome/index/TRUE');
+				redirect('welcome');
 			}
 			else
 				$error_message = $ret_val['message'];
@@ -338,7 +338,7 @@ class Event extends MY_Controller {
 			
 			$data_theme		 =	'data-theme="'.($row['recorded_event']	?	'e'	:	'c').'"';
 			$event_name = $row['box_abbreviation'] === null ? $row['event_name'] : $row['box_abbreviation'].'\'s '.$row['event_name'];
-			$event_list	.=	'<li '.$data_theme.'><a data-ajax="false" href="'.base_url().'index.php/'.$direction_uri.'/save_event/'.$row['event_id'].'">'.$event_name.'</a><span class="ui-li-count">'.$event_date_range.'</span></li>';
+			$event_list	.=	'<li '.$data_theme.'><a data-ajax="false" href="'.base_url().''.$direction_uri.'/save_event/'.$row['event_id'].'">'.$event_name.'</a><span class="ui-li-count">'.$event_date_range.'</span></li>';
 		}
 		
 		$data['event_list']	=	$event_list;
@@ -355,7 +355,7 @@ class Event extends MY_Controller {
 			redirect ('member/login');
 		
 		if (!$this->is_admin)
-			redirect ('welcome/index/TRUE');
+			redirect ('welcome');
 		
 		echo 'publish event';
 	}
@@ -366,7 +366,7 @@ class Event extends MY_Controller {
 			redirect ('member/login');
 		
 		if (!$this->is_admin)
-			redirect ('welcome/index/TRUE');
+			redirect ('welcome');
 		
 		$this->load->model('Event_model');
 		$event_list_array		= $this->Event_model->get_events_with_wods();
@@ -376,7 +376,7 @@ class Event extends MY_Controller {
 		{
 			$full_event_display = $row['hosting_entity'].' - '.$row['event_name'];
 			if ($row['wod_count'] == 1)
-				$event_list .= '<li><a href="'.base_url().'index.php/event/save_event_wod/'.$row['ew_id_single'].'" data-ajax="false">' .$full_event_display. '</a><span class="ui-li-count">'.$row['wod_count'].'</span></li>';
+				$event_list .= '<li><a href="'.base_url().'event/save_event_wod/'.$row['ew_id_single'].'" data-ajax="false">' .$full_event_display. '</a><span class="ui-li-count">'.$row['wod_count'].'</span></li>';
 			else
 				$event_list	.= '<li><a href="#PAGE_ID_'.$row['event_id'].'">'.$full_event_display.'</a><span class="ui-li-count">'.$row['wod_count'].'</span></li>';;
 		}
@@ -402,7 +402,7 @@ class Event extends MY_Controller {
 				
 				$current_event = $row['event_id'];
 			}
-			$running_content  .= '<li><a data-ajax="false" href="'.base_url().'index.php/event/save_event_wod/'.$row['ew_id'].'">'.$row['simple_title'].'</a></li>';
+			$running_content  .= '<li><a data-ajax="false" href="'.base_url().'event/save_event_wod/'.$row['ew_id'].'">'.$row['simple_title'].'</a></li>';
 		}
 		
 		$running_content	.=	$page_closer;

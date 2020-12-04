@@ -151,7 +151,7 @@ class Paleo extends MY_Controller {
 			if ($ret_val['success']) 
 			{				
 				$this->session->set_flashdata('good_message', 'Paleo Meal saved.');
-				redirect('welcome/index/TRUE');
+				redirect('welcome');
 			}
 			else
 			{
@@ -394,7 +394,7 @@ class Paleo extends MY_Controller {
 		$alt_row	=	0;
 		
 		foreach($paleo_history_array as $row) 
-			$paleo_history  .= '<li><a data-ajax="false" href="'.base_url().'index.php/paleo/save_member_paleo_meal/'.$row['meal_day'].'">'.$row['meal_date'].'</a><span class="ui-li-count">'.$row['meal_count'].'</span></li>';
+			$paleo_history  .= '<li><a data-ajax="false" href="'.base_url().'paleo/save_member_paleo_meal/'.$row['meal_day'].'">'.$row['meal_date'].'</a><span class="ui-li-count">'.$row['meal_count'].'</span></li>';
 
 		/*
 		foreach($paleo_history_array as $row) 
@@ -404,7 +404,7 @@ class Paleo extends MY_Controller {
 		
 			$delete_link	 =	'<a href="#" data-ajax="false" data-role="button" data-icon="delete" data-iconpos="notext" >'.$row['mp_id'].'</a>';
 			$paleo_history	.=	'<div class="ui-block-a '.$alt_row_class.'">'.$delete_link.'</div>';
-			$edit_link		 =	'<a href="'.base_url().'index.php/paleo/save_member_paleo_meal/'.$row['mp_id'].'" data-ajax="false">'.$row['meal_date'].'</a>';
+			$edit_link		 =	'<a href="'.base_url().'paleo/save_member_paleo_meal/'.$row['mp_id'].'" data-ajax="false">'.$row['meal_date'].'</a>';
 			$paleo_history	.=	'<div class="ui-block-b  date-block  grid-row-with-image '.$alt_row_class.'">'.$edit_link.'</div>';
 			$paleo_history	.=	'<div class="ui-block-c number-block grid-row-with-image '.$alt_row_class.'">'.$row['meal_type'].'</div>';
 			
@@ -441,7 +441,7 @@ class Paleo extends MY_Controller {
 
 			$delete_link	 =	'<a href="" data-role="button" data-icon="delete" data-iconpos="notext" class="mp-delete-link" id="delete_id_'.$row['mp_id'].'" >Delete</a>';
 			$paleo_history	.=	'<div class="ui-block-a '.$alt_row_class.'">'.$delete_link.'</div>';
-			$edit_link		 =	'<a href="'.base_url().'index.php/paleo/save_member_paleo_meal/'.$row['mp_id'].'" data-ajax="false" class="mp-edit-link" id="edit_id_'.$row['mp_id'].'">'.$row['meal_time'].'</a>';
+			$edit_link		 =	'<a href="'.base_url().'paleo/save_member_paleo_meal/'.$row['mp_id'].'" data-ajax="false" class="mp-edit-link" id="edit_id_'.$row['mp_id'].'">'.$row['meal_time'].'</a>';
 			$paleo_history	.=	'<div class="ui-block-b  date-block  '.$alt_row_class.'">'.$edit_link.'</div>';
 			if ($row['image_name']	!= '')
 			{

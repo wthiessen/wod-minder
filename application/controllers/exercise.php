@@ -170,7 +170,7 @@ class Exercise extends MY_Controller {
 			if ($ret_val['success']) 
 			{
 				$this->session->set_flashdata('good_message', 'Max saved.');
-				redirect('welcome/index/TRUE');
+				redirect('welcome');
 			}
 			else
 				$error_message = $ret_val['message'];

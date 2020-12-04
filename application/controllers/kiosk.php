@@ -279,7 +279,7 @@ class Kiosk extends MY_Controller {
 		$box_array	= $this->Box_model->get_box_list(TRUE); //TRUE means exclude N/A and 'Other'
 		
 		foreach ($box_array as $row)
-			$box_list .= '<li><a href="'.base_url().'index.php/kiosk/index/'.$row['box_id'].'" data-ajax="false">' .$row['box_name'] . '</a></li>';
+			$box_list .= '<li><a href="'.base_url().'kiosk/index/'.$row['box_id'].'" data-ajax="false">' .$row['box_name'] . '</a></li>';
 		
 		
 		$data['box_list']			=	$box_list;

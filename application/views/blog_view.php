@@ -44,8 +44,8 @@
 		<div id="menu">
 			<ul>
 				<li id="current"><a href="http://www.wod-minder.com"><span>Home</span></a></li>
-				<li id="current"><a href="<?php echo base_url();?>index.php/blog"><span>Blog</span></a></li>		
-				<li id="current"><a href="<?php echo base_url();?>index.php/"><span>App</span></a></li>
+				<li id="current"><a href="<?php echo base_url();?>blog"><span>Blog</span></a></li>		
+				<li id="current"><a href="<?php echo base_url();?>"><span>App</span></a></li>
 			</ul>
 		</div>	
 		
@@ -62,8 +62,8 @@
 					<h1>Sidebar Menu</h1>
 					<ul class="sidemenu">
 						<li id="current"><a href="http://www.wod-minder.com"><span>Home</span></a></li>
-						<li id="current"><a href="<?php echo base_url();?>index.php/blog"><span>Blog</span></a></li>		
-						<li id="current"><a href="<?php echo base_url();?>index.php/"><span>App</span></a></li>
+						<li id="current"><a href="<?php echo base_url();?>blog"><span>Blog</span></a></li>		
+						<li id="current"><a href="<?php echo base_url();?>"><span>App</span></a></li>
 					</ul>
 
 					<h1>Wise Words</h1>

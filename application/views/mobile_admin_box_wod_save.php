@@ -95,7 +95,7 @@ $this->load->helper('form'); ?>
 	<?php echo $hidden_wod_info; ?>
 	<!-- <div data-role="page" id="PickFacilityPage">'.
 		<div data-role="header">
-			<a href="<?php echo base_url(); ?>index.php/welcome/index/TRUE" data-ajax ="false" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+			<a href="<?php echo base_url(); ?>welcome" data-ajax ="false" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
 			<h1>Pick Facility</h1>
 		</div>
 		<div data-role="fieldcontain">
@@ -282,7 +282,7 @@ $this->load->helper('form'); ?>
 		
 		//Buttons
 		echo	$field_contain_div.
-					anchor('welcome/index/TRUE', 'Cancel', array(	'data-ajax'=>'false',
+					anchor('welcome', 'Cancel', array(	'data-ajax'=>'false',
 															'data-role'=>'button',
 															'data-inline'=>'true')).
 					form_button($submit).

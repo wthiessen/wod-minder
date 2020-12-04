@@ -33,7 +33,7 @@
 	<div id="body">
 		<p>This application has not yet been configured for regular browsers.</p>
 		<p>However, you can view the mobile version in a regular browser.</p>
-		<p><a href="<?php echo base_url();?>index.php/welcome/index/TRUE">Click here to go to the mobile version.</a></p>
+		<p><a href="<?php echo base_url();?>welcome">Click here to go to the mobile version.</a></p>
 	</div>
 </div>
 
